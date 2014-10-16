@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" version="3.2" serie="FTAC" folio="119848" fecha="2014-09-13T09:58:41" sello="r4NN8PwWtwsqsDLwuY2ajo/+j2VkRES5RbKasNbCeMVOPOvR3fZRDJcYGMvUHTNaiEZn+DAbKzN6huVR6z3c2bKHm02ao7zKRief/kj5fPsP3igicRE1XCm6TffFYew0Itpa1q2FbT6uYz0ymzmbhGRDy8URBxiy28hbXrAVqE0=" formaDePago="PAGO EN UNA SOLA EXHIBICION" noCertificado="00001000000201899194" certificado="MIIEiTCCA3GgAwIBAgIUMDAwMDEwMDAwMDAyMDE4OTkxOTQwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEyMDkwNjE1Mjc1MFoXDTE2MDkwNjE1Mjc1MFowgcoxJDAiBgNVBAMTG0VMRUNUUk9OSUNBIFRBQ1VCQSBTQSBERSBDVjEkMCIGA1UEKRMbRUxFQ1RST05JQ0EgVEFDVUJBIFNBIERFIENWMSQwIgYDVQQKExtFTEVDVFJPTklDQSBUQUNVQkEgU0EgREUgQ1YxJTAjBgNVBC0THEVUQTk2MTAyNTM4NiAvIFJFSFI2NTExMThTNDUxHjAcBgNVBAUTFSAvIFJFSFI2NTExMThIREZZUkwwNTEPMA0GA1UECxMGVEFDVUJBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDM1RUfkvrrlqBAm41Lt9VWbXD+JdWD3IZsJVL0T/iRaF5TBw/SIKT0t9BRWU+bRcnf8YpYrCBWNreKfWdhK9DEQuYqaIaoB3EfHYomRREVLif3KAVyovqVvP/60LrXL7BWNmb92329eQ43xuwtBqNMszEWfkqHczQEXjInJN+D+wIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAchcD/Gqr+1o2wFB7pgSVt5Kz4V7EEfEZL5Dy7h25u6KyKrr4unm5wUKftK3/qt44Je3sb6g2edWR9XoyBkoQs/aWrlgtATAAXlrLMRPzuPGTIqa5k4PVj6K3dOlCPxRVqnwQiM5OA2GptzCKWUjE54OLdt/fa9KcNglizpKiWZAo+x+Gnl1FrJVSVX1WtBJbbFGwlgSwo6BCxFvAjlpEts35Bk/ycfyK7qphyGG5MNauKjvHC3tIxbC4WLe1Zjq2RiiNpBqbv6cjuhEfxrfY2K79pbhY5cIP4wqXjL0c4vXyO5xQgqb2p7ktKPRjFDqFSYuHSli68jTmF0QUhandWA==" subTotal="271.550000" descuento="0.000000" Moneda="MXN" total="315.000000" tipoDeComprobante="ingreso" metodoDePago="Efectivo" LugarExpedicion="MIGUEL HIDALGO, Distrito Federal">
+  <cfdi:Emisor rfc="ETA961025386" nombre="ELECTRONICA TACUBA S.A. DE C.V.">
+    <cfdi:DomicilioFiscal calle="CALZADA MÉXICO TACUBA" noExterior="537" noInterior="LOCAL A" colonia="POPOTLA" localidad="MIGUEL HIDALGO" referencia="119848" municipio="MIGUEL HIDALGO" estado="DF" pais="Mexico" codigoPostal="11400" />
+    <cfdi:ExpedidoEn calle="Calz. México Tacuba" noExterior="No.537 -A" colonia="Popotla" localidad="MIGUEL HIDALGO" municipio="MIGUEL HIDALGO" estado="DF" pais="Mexico" codigoPostal="11400" />
+    <cfdi:RegimenFiscal Regimen="Regimen Fiscal de Personas Morales" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="PAP830101CR3" nombre="PAPEL S.A. DE C.V.">
+    <cfdi:Domicilio calle="BIOLOGO MAXIMINO MARTINEZ" noExterior="3902" colonia="SAN SALVADOR XOCHIMANCA" localidad="AZCAPOTZALCO" municipio="AZCAPOTZALCO" estado="DF" pais="MX" codigoPostal="02870" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1.000000" unidad="Pieza" descripcion="CAUTIN WELLER TIPO LAPIZ 25W C/ILUMINACI" valorUnitario="254.310000" importe="254.310000" />
+    <cfdi:Concepto cantidad="2.000000" unidad="Pieza" descripcion="BASE PARA C.I. 28 PATAS" valorUnitario="4.310000" importe="8.620000" />
+    <cfdi:Concepto cantidad="2.000000" unidad="Pieza" descripcion="TERMINAL C/2 TORNILLOS P/C. IMPRESO CHIC" valorUnitario="4.310000" importe="8.620000" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosRetenidos="0.000000" totalImpuestosTrasladados="43.450000">
+    <cfdi:Retenciones>
+      <cfdi:Retencion impuesto="IVA" importe="0.000000" />
+    </cfdi:Retenciones>
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.000000" importe="43.450000" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento><tfd:TimbreFiscalDigital version="1.0" UUID="56f98a1e-f994-49ee-a867-5d1e42ce32b1" FechaTimbrado="2014-09-13T10:01:40" selloCFD="r4NN8PwWtwsqsDLwuY2ajo/+j2VkRES5RbKasNbCeMVOPOvR3fZRDJcYGMvUHTNaiEZn+DAbKzN6huVR6z3c2bKHm02ao7zKRief/kj5fPsP3igicRE1XCm6TffFYew0Itpa1q2FbT6uYz0ymzmbhGRDy8URBxiy28hbXrAVqE0=" noCertificadoSAT="00001000000300171326" selloSAT="eOPkiW95IhqOsjyYyUrK2uLBXj10cmQGDJC5XbmLUiXc9mpK7hDfrqmlxrq9ynBiWWfYICo8/OhgmwgDYJ/PoyZmyXAJwlAzh3sukJSWqgRKsOsS+v4gsYTmu5+dI315YMh1MoyMMPhJwlJbMFv1WQJgUVns3p8Pj4LSOb6hrW0=" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd" /></cfdi:Complemento>
+</cfdi:Comprobante>

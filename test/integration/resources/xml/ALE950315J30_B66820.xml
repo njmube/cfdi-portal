@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" Moneda="MXP" metodoDePago="TRANSFERENCIA ELECTRONICA DE FONDOS" LugarExpedicion="México D.F." version="3.2" folio="66820" fecha="2014-01-31T16:50:49" sello="A0vV5gNFTRNQRGF0lbzVttF70vS5k6EK34U7bThNbAEctZ6CSpucZH/a4n1Fa3icEqsn99A7sZuh6Ii5/DgRBcUhisFpXjOh0G3Cg59CpX7DgL8sanVdBg5O3P4ylLWLsQzqxUlJZo+xU3cKUNqJyEe39uU8Le8AoL4h1spqDOo=" formaDePago="PAGO EN UNA SOLA EXHIBICION" tipoDeComprobante="ingreso" noCertificado="00001000000201971258" certificado="MIIFADCCA+igAwIBAgIUMDAwMDEwMDAwMDAyMDE5NzEyNTgwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEyMDkxODE4MTA0OVoXDTE2MDkxODE4MTA0OVowggFAMUkwRwYDVQQDE0BBTE1BQ0VOQURPUkEgTE9HSVNUSUNBIEVNUFJFU0FSSUFMIFNBIE9SR0FOSVpBQ0lPTiBBVVhJTElBUiBERUwgMVAwTgYDVQQpE0dBTE1BQ0VOQURPUkEgTE9HSVNUSUNBIEVNUFJFU0FSSUFMIFNBIE9SR0FOSVpBQ0lPTiBBVVhJTElBUiBERUwgQ1JFRElUTzFJMEcGA1UEChNAQUxNQUNFTkFET1JBIExPR0lTVElDQSBFTVBSRVNBUklBTCBTQSBPUkdBTklaQUNJT04gQVVYSUxJQVIgREVMIDElMCMGA1UELRMcQUxFOTUwMzE1SjMwIC8gWkFHSjcwMDcxMlU5NTEeMBwGA1UEBRMVIC8gWkFHSjcwMDcxMkhERlBOTjAwMQ8wDQYDVQQLEwZVTklEQUQwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMM/iiNLUcuQbW+dbFC7R0vHbtYwNBmPrKvY3O1+ReQ0+A0XVDWPaUe7tIZ6y+tsspV2sL3dRkjbaztponQa9QQEfBS3UkwwodU8w2hWGwnctpBJwghwwER2zqRvzaRe5txiZJ81MKeVBR1pMdmQ/sIYlxDbJpapl0m4Iws01jMfAgMBAAGjHTAbMAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBBQUAA4IBAQCjgzGx+pfjcUUBXYzyTF8pM0CguaQH2n/w6lC+wIT1Lcpe4zMN3ZFNVj8zezYQJwv4I2HHhaavUqrV7h/cU0LXZy+FUJI17hojbEHb1Pg9uJK8WL4ZKKO8IR4EznsCY+FIKDptlQRu0rGKdRdk1rLYXSpb7rD56D7jRrtm4W2+dJE1WOgtqerq2kvy6muIOjIiFBxS6+1khy5borJFELxMmSSJK9ZITLLdOnwEa9rh4Oai9IPv0gzLO29R3FMysoIGpAsFmXQo2rum1Ncd5cQOc1ZjDV46TX4p95yomFES9udxhZOOAAtsPfrZAQNvBhY8dv8LQ1dJts/mQUIbIupV" subTotal="20200.000000" total="23432.000000" serie="B">
+	<cfdi:Emisor rfc="ALE950315J30" nombre="ALMACENADORA LOGISTICA EMPRESARIAL S.A. ORGANIZACION AUXILIAR DEL CREDITO">
+		<cfdi:DomicilioFiscal calle="PONIENTE 148" noExterior="923" colonia="INDUSTRIAL VALLEJO" localidad="MEXICO" municipio="AZCAPOTZALCO" estado="DISTRITO FEDERAL" pais="MEXICO" codigoPostal="02300" />
+		<cfdi:RegimenFiscal Regimen="REGIMEN GENERAL DE LEY PERSONAS MORALES"/>
+	</cfdi:Emisor>
+	<cfdi:Receptor rfc="PAP830101CR3" nombre="PAPEL, S.A. DE C.V.">
+		<cfdi:Domicilio calle="BIOLOGO MAXIMINO MTZ. 3902 SAN SALVADOR XOCHIMANCA" municipio="AZCAPOTZALCO" estado="D.F." pais="MEXICO" codigoPostal="02870" />
+	</cfdi:Receptor>
+	<cfdi:Conceptos>
+		<cfdi:Concepto cantidad="3000.000000" unidad="TRAILER" descripcion="SERVICIO LOGISTICO" valorUnitario="1.000000" importe="3000.000000"/>
+		<cfdi:Concepto cantidad="3000.000000" unidad="TRAILER" descripcion="SERVICIO LOGISTICO" valorUnitario="1.000000" importe="3000.000000"/>
+		<cfdi:Concepto cantidad="2600.000000" unidad="TORTHON" descripcion="SERVICIO LOGISTICO" valorUnitario="1.000000" importe="2600.000000"/>
+		<cfdi:Concepto cantidad="3000.000000" unidad="TRAILER" descripcion="SERVICIO LOGISTICO" valorUnitario="1.000000" importe="3000.000000"/>
+		<cfdi:Concepto cantidad="3000.000000" unidad="TRAILER" descripcion="SERVICIO LOGISTICO" valorUnitario="1.000000" importe="3000.000000"/>
+		<cfdi:Concepto cantidad="2600.000000" unidad="TORTHON" descripcion="SERVICIO LOGISTICO" valorUnitario="1.000000" importe="2600.000000"/>
+		<cfdi:Concepto cantidad="3000.000000" unidad="TRAILER" descripcion="SERVICIO LOGISTICO" valorUnitario="1.000000" importe="3000.000000"/>
+	</cfdi:Conceptos>
+	<cfdi:Impuestos totalImpuestosTrasladados="3232.000000">
+		<cfdi:Traslados>
+			<cfdi:Traslado impuesto="IVA" tasa="16.000000" importe="3232.000000" />
+		</cfdi:Traslados>
+	</cfdi:Impuestos>
+	<cfdi:Complemento>
+		<tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FechaTimbrado="2014-01-31T16:50:50" UUID="2D9D787A-23F6-EEC9-8092-983922BDDC43" noCertificadoSAT="00001000000203392777" selloCFD="A0vV5gNFTRNQRGF0lbzVttF70vS5k6EK34U7bThNbAEctZ6CSpucZH/a4n1Fa3icEqsn99A7sZuh6Ii5/DgRBcUhisFpXjOh0G3Cg59CpX7DgL8sanVdBg5O3P4ylLWLsQzqxUlJZo+xU3cKUNqJyEe39uU8Le8AoL4h1spqDOo=" selloSAT="t+tSCeBzgEIXd86vYvVtV7ibfH/mwD9aO8NypYoQ1IWhANRu/fV7C6dzA5z236gDUShBCbSqGGlZS2xmgdWuALD+ap18S27SfxlbMeGp3hgiEaBvlzFTQPQ7T+ZHS7CCRZ2jbOv2u8HTFrbSneCL1wiy0E80zmn72YKpVLbTPSQ=" version="1.0" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd"/>
+	</cfdi:Complemento>
+</cfdi:Comprobante>

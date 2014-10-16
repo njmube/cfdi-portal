@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.2" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" serie="VERY" folio="30427" fecha="2014-03-04T15:01:49" sello="7+zygBox8NHOdQHrtyuxkYN7s1TwEAbxXQhC9yEqsZ7eiG1vWpJM3J3WuMkf3SfdBW5TdslI1DnjRRslMtCX+R6RKjNfUyO+3JlFffyYGHzwKmy87NixLCcwsQ4vu4asAE37sn3CN4cE2ssCYRcHDT/3JKjVLZTYSjd3YecukFo=" formaDePago="PAGO EN UNA SOLA EXHIBICION" noCertificado="00001000000202606758" certificado="MIIEijCCA3KgAwIBAgIUMDAwMDEwMDAwMDAyMDI2MDY3NTgwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEyMTIxNDE0MzIzOVoXDTE2MTIxNDE0MzIzOVowgcsxIzAhBgNVBAMTGlBBUEVMRVJBIFBST0dSRVNPIFNBIERFIENWMSMwIQYDVQQpExpQQVBFTEVSQSBQUk9HUkVTTyBTQSBERSBDVjEjMCEGA1UEChMaUEFQRUxFUkEgUFJPR1JFU08gU0EgREUgQ1YxJTAjBgNVBC0THFBQUjA0MDgyMDNINCAvIE1BQUY2OTAxMjQxUzYxHjAcBgNVBAUTFSAvIE1BQUY2OTAxMjRIREZSTFIwNjETMBEGA1UECxMKUmV2b2x1Y2lvbjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA+wVyi1pjMMon5Aq/17gGEawWIAjghTqy2iSL36Wmm5dsa+3V1wWZ0RmC3MrSNh25RuuImoDCNhSoe4+xydKtBz1xlzI70Yy8Udg2wsYLjtVX057vs1W3+KhtTANpQXiOtPdBf808zkzuIheSoUkA6kKzH+4XeWANBhwp4vKUpoMCAwEAAaMdMBswDAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQEFBQADggEBACZbWQPsI4yr78HEufeeUxGsICknyYYrQ8q6waaqGMWBV84PvzfNSK5q8zB4AvHHkN1ZlchCHa7EtOqjP/e//t2uV94iLnp0Xh1gZcWqA1oXc4XOvRdehQdoS3BoN//192R0+Jd+716MTTWz8YTmBkEgFOLJ2/PFklQayonMAiOWwuJA/WIuqE6ds7OMKSwTxePSDaFpW4BKPW3s54O1gLAyEMmkjCpsyK9ExDndTK+tb3tYxF1K7w+lovfDC4g1hvoDakpBTury3NlMSxQJGI/yrfJrVog2wJ83GiCdE063LYgpTjTdhjR2QPWPrpfRJo0HsaGYsbDKVBrxaC7ZHx0=" condicionesDePago="CREDITO 30 DIAS F FAC" subTotal="1550.18" total="1798.21" tipoDeComprobante="ingreso" LugarExpedicion="CUAUHTEMOC DISTRITO FEDERAL" metodoDePago="NO IDENTIFICADO" Moneda="PES" TipoCambio="1.0000" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd  http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd ">
+  <cfdi:Emisor rfc="PPR0408203H4" nombre="PAPELERA PROGRESO S.A. DE C.V.">
+    <cfdi:DomicilioFiscal calle="AVENIDA REVOLUCION" noExterior="1501" colonia="CAMPESTRE" municipio="ALVARO OBREGON" estado="DISTRITO FEDERAL" pais="MEXICO" codigoPostal="01040" />
+    <cfdi:ExpedidoEn calle="Doctor Vertiz" noExterior="146" colonia="Doctores" municipio="Cuauhtemoc" estado="DISTRITO FEDERAL" pais="MEXICO" codigoPostal="06720" />
+    <cfdi:RegimenFiscal Regimen="Regimen General de Ley Personas Morales" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="PAP830101CR3" nombre="PAPEL S.A. DE C.V.">
+    <cfdi:Domicilio calle="BIOLOGO MAXIMINO MARTINEZ" noExterior="3902" colonia="SAN SALVADOR XOCHIMANCA" municipio="AZCAPOTZALCO" estado="DISTRITO FEDERAL" pais="MEXICO" codigoPostal="02870" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1.1000" unidad="MILLAR" descripcion="BRISTOL BLANCA 57X72 200 GR" valorUnitario="1409.25" importe="1550.18" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="248.03">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="248.03" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital version="1.0" UUID="a12a8384-99e4-453e-acbe-e4d749949df9" FechaTimbrado="2014-03-04T15:02:28" selloCFD="7+zygBox8NHOdQHrtyuxkYN7s1TwEAbxXQhC9yEqsZ7eiG1vWpJM3J3WuMkf3SfdBW5TdslI1DnjRRslMtCX+R6RKjNfUyO+3JlFffyYGHzwKmy87NixLCcwsQ4vu4asAE37sn3CN4cE2ssCYRcHDT/3JKjVLZTYSjd3YecukFo=" noCertificadoSAT="00001000000202693892" selloSAT="Cttp+MgTeoxDInjoXWIa2xf4Nljl3kLj7CZa1hLRKX2nVqnHBzIXxLFhLOoin/Sg0Wc/3Fo7osHTQSV9PfI2lnK7oz3z2EQ1VBpDrdLOicu901OxZymOm53VX8oipBtKQudWoYA5OJoII2pPJW5EGT2lwn6rLSdA8ioulcqQTDI=" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>
