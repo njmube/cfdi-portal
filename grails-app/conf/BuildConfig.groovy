@@ -93,6 +93,7 @@ grails.project.dependency.resolution = {
         compile ":fields:1.4"
 		
 		compile ":cxf-client:2.0"
+        compile ":standalone:1.2.3"
 		
         //compile ":spring-security-core:2.0-RC4"
 
