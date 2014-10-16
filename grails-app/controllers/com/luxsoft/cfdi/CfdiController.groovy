@@ -81,7 +81,8 @@ class CfdiController {
             '*'{ render status: NOT_FOUND }
         }
     }
-
+	
+	@Transactional
     def uploadCfdi(){
         def xml=request.getFile('xml')
         if (xml.empty) {
@@ -102,7 +103,8 @@ class CfdiController {
         
 
     }
-
+	
+	@Transactional
     def batchUpload(){
         def count=0
         request.getFiles("xmls[]").each { xml ->
