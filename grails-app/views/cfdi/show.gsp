@@ -24,6 +24,17 @@
 						    		<p class="form-control-static">${cfdiInstance.receptor}</p>
 						    	</div>
 						  	</div>
+						  	
+						  	<div class="form-group">
+						  		<label class="col-sm-2 control-label">RFC</label>
+						  		<div class="col-sm-4">
+						    		<p class="form-control-static">${cfdiInstance.emisorRfc}</p>
+						    	</div>
+						    		<label class="col-sm-2 control-label">RFC</label>
+						    	<div class="col-sm-4">
+						    		<p class="form-control-static">${cfdiInstance.receptorRfc}</p>
+						    	</div>
+						  	</div>
 
 					  		<div class="form-group">
 					  			<label class="col-sm-2 control-label">Serie</label>

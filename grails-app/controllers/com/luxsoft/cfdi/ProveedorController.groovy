@@ -103,8 +103,11 @@ class ProveedorController {
     }
 
     def comprobantes(Proveedor proveedor){
-        def rows=Cfdi.findAllByEmisor(proveedor.nombre)
-        [rows:rows,proveedorInstance:proveedor]
+        params.max = 500
+        def rows=Cfdi.findAllByEmisorRfc(proveedor.rfc,params)
+        def total=Cfdi.countByEmisorRfc(proveedor.rfc)
+        [rows:rows,totalRows:total,proveedorInstance:proveedor]
 
+        
     }
 }

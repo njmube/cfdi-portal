@@ -16,6 +16,11 @@
 			
 			<%-- Catalogos --%>
 			<ul class="nav navbar-nav">
+			
+				<%-- Receptores --%>
+				<li class="">
+	          		<g:link controller="receptor" action="index"> Receptores</g:link>
+	        	</li>
 				
 				<%-- Proveedores --%>
 				<li class="">

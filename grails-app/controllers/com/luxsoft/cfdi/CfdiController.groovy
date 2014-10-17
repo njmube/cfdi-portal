@@ -18,7 +18,9 @@ class CfdiController {
 
     def index(Integer max) {
 		
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 1000, 5000)
+		params.sort=params.sort?:'dateCreated'
+		params.order='desc'
         respond Cfdi.list(params), model:[cfdiInstanceCount: Cfdi.count()]
     }
 

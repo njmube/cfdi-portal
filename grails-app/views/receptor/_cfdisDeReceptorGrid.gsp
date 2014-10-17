@@ -2,7 +2,7 @@
 <table id="comprobantesTable" class="table table-striped table-bordered table-condensed">
 	<thead>
 		<tr>
-			<th>Receptor</th>
+			
 			<th>Emisor</th>
 			<th>Fecha</th>
 			<th>UUID</th>
@@ -18,13 +18,7 @@
 	<tbody>
 		<g:each in="${rows}" var="row">
 			<tr>
-				<td>
-					<g:link controller="cfdi" action="show" id="${row.id}">
-						<abbr title="${row.receptor}">
-							${org.apache.commons.lang.StringUtils.substring(row.receptor,0,15)}
-						</abbr>
-					</g:link>
-				</td>
+				
 				<td>
 					<g:link controller="cfdi" action="show" id="${row.id}">
 						<abbr title="${row.emisor}">
@@ -72,7 +66,6 @@
 	</tbody>
 </table>
 <div class="pagination">
-	<g:paginate total="${totalRows ?: 0}" id="${proveedorInstance.id }"/>
+	<g:paginate total="${totalRows ?: 0}" id="${receptorInstance.id }"/>
 </div>
-
 

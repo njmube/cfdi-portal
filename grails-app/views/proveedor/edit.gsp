@@ -2,24 +2,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="layout" content="createForm"/>
-	<title>Proveedor: ${proveedorInstance.id}</title>
+	<title>${proveedorInstance.nombre}</title>
 </head>
 <body>
 
 	<content tag="header">
-		<h3>${proveedorInstance.nombre}</h3>
+		<h3>${proveedorInstance.nombre} </h3>
 	</content>
 	
 	<content tag="operaciones">
 		<ul class="nav nav-pills nav-stacked">
-			<li><g:link action="edit" id="${proveedorInstance.id}">
-  					<span class="glyphicon glyphicon-pencil"></span> Editar
-  			    </g:link>
-  			</li>
-  			<li><g:link action="comprobantes" id="${proveedorInstance.id}">
-  					<i class="fa fa-database fa-lg"></i> Comprobantes
-  			    </g:link>
-  			</li>
   			<li><g:link action="index">
   					<span class="glyphicon glyphicon-arrow-left"></span> Catálogo
   			    </g:link>
@@ -41,12 +33,12 @@
             </div>
         </g:hasErrors>
 		
-		<fieldset disabled>
-		<form class="form-horizontal" >
-			
-			<f:with bean="${proveedorInstance}">
+		<g:form class="form-horizontal" action="update" method="PUT">
+			<g:hiddenField name="id" value="${proveedorInstance?.id}"/>
+			<g:hiddenField name="version" value="${proveedorInstance?.version}"/>
+			<f:with bean="${proveedorInstance }">
 				<f:field property="nombre" input-class="form-control"/>
-				<f:field property="rfc" input-class="form-control"/>
+				<f:field property="rfc" input-class="form-control" input-disabled="disabled"/>
 				<f:field property="cfdiEmail" input-class="form-control"/>
 				<g:render template="direccion"/>
 				<fieldset><legend>Otros</legend>
@@ -60,9 +52,19 @@
 				</div>
 				</fieldset>
 			</f:with>
-		</form>
-		</fieldset>
+			
+			<div class="form-group">
+		    	<div class="col-sm-offset-9 col-sm-2">
+		      		<button type="submit" class="btn btn-default">
+		      			<span class="glyphicon glyphicon-floppy-save"></span> Actualizar
+		      		</button>
+		    	</div>
+		  	</div>
+		</g:form>
 		
+		<r:script>
+			
+		</r:script>
 
 	</content>
 	

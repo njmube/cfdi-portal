@@ -12,7 +12,6 @@
 			<th>XML</th>
 			<th>Acuse</th>
 			<th>Eliminar</th>
-			
 		</tr>
 	</thead>
 	<tbody>
@@ -74,4 +73,7 @@
 		</g:each>
 	</tbody>
 </table>
+<div class="pagination">
+	<g:paginate total="${cfdiInstanceCount ?: 0}" />
+</div>
 

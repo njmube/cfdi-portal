@@ -13,7 +13,10 @@ class Cfdi {
 	String folio
 	String serie
 	String emisor
+	String emisorRfc
 	String receptor
+
+	String receptorRfc
 	String fileName
 
 	String acuseEstado
@@ -42,6 +45,8 @@ class Cfdi {
 		fileName nullable:true
 		acuseEstado nullable:true
 		acuseCodigoEstatus nullable:true
+		receptorRfc maxSize:20
+		emisorRfc maxSize:20
 	}
 	
 	static transients = ['comprobanteDocument','timbreFiscal']
@@ -82,7 +87,9 @@ class Cfdi {
 		this.folio=c.folio
 		this.fecha=c.fecha.getTime()
 		this.emisor=c.emisor.nombre
+		this.emisorRfc=c.emisor.rfc
 		this.receptor=c.receptor.nombre
+		this.receptorRfc=c.receptor.rfc
 		this.total=c.getTotal()
 	}
 	

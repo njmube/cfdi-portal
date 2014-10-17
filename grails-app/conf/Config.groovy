@@ -119,8 +119,10 @@ log4j.main = {
 	environments{
 		
 		development{
-			info  'grails.app.controllers'
-			info  'grails.app.services'
+			error 'grails.app.controllers'
+			error 'grails.app.services'
+			info  'grails.app.controllers.com.luxsoft'
+			info  'grails.app.services.com.luxsoft'
 			debug 'grails.app.services.com.luxsoft.cfdi.ProveedorService'
 			warn  'org.mortbay.log'
 			info  'com.luxsoft.cfdi'
