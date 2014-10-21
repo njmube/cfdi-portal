@@ -45,7 +45,7 @@ class CFDIUtils {
 		d.calle=uf.calle
 		d.numeroExterior=uf.getNoExterior()
 		d.numeroInterior=uf.getNoInterior()
-		d.colonia=uf.colonia
+		d.colonia=uf.colonia?:uf.getLocalidad()
 		d.municipio=uf.municipio
 		d.estado=uf.estado
 		d.pais=uf.pais
