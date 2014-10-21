@@ -10,9 +10,11 @@ testDataConfig {
             estado='GUANAJUATO'
             pais='MEXICO'
         }
+        /*
         'com.luxsoft.cfdi.Cfdi'{
             xml=new File("test/integration/resources/xml/ALE950315J30_B66820.xml").getBytes()
         }
+        */
     }
 }
 
