@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Papel B2B Site</title>
+		<title>Luxor CFDI Manager</title>
 		
 	</head>
 	<body>
