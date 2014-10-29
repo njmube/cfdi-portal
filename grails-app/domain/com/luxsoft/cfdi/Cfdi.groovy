@@ -26,6 +26,7 @@ class Cfdi {
 	byte[] xml
 	byte[] acuse
 
+	String referencia
 	
 	ComprobanteDocument comprobanteDocument
 	
@@ -47,6 +48,7 @@ class Cfdi {
 		acuseCodigoEstatus nullable:true
 		receptorRfc maxSize:20
 		emisorRfc maxSize:20
+		referencia nullable:true,maxSize:20
 	}
 	
 	static transients = ['comprobanteDocument','timbreFiscal']

@@ -14,6 +14,11 @@
 					    <label for="inputFile">Comprobante fiscal digital CFDI</label>
 					    <input type="file" id="inputFile" name="xml" accept="application/xml">
 					    <p class="help-block">Seleccion el archico XML a cargar</p>
+					 </div>
+					 <div class="form-group">
+					    <label for="inputFile">Referencia</label>
+					    <input type="string" id="referenciaField" name="referencia" >
+					    <p class="help-block">Referencia de control interno</p>
 					 </div> 
 				</div>
 

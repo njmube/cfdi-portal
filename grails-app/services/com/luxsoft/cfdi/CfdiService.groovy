@@ -19,25 +19,25 @@ class CfdiService {
 
 	def  consultaService
 
-    def cargarComprobante(MultipartFile xmlFile) {
+    def cargarComprobante(MultipartFile xmlFile,String referencia) {
 
     	Cfdi cfdi=new Cfdi()
-    	
+    	cfdi.referencia=referencia
     	try {
     		
             cfdi.fileName=xmlFile.getOriginalFilename()
         	cfdi.cargarXml(xmlFile.getBytes())
-			log.debug "Cargando CFDI: "+cfdi.getComprobante()
+			
 			validarEnElSat(cfdi)
             cfdi.save failOnError:true
-			
+			log.info "CFDI importado: "+cfdi.uuid
 			return cfdi
     	}
     	catch(Exception e) {
-    		log.error e
+    		//log.error e
     		String msg=ExceptionUtils.getRootCauseMessage(e)
-    		
-    		throw new CfdiException(message:msg,cfdi:cfdi)
+    		log.info msg
+    		//throw new CfdiException(message:msg,cfdi:cfdi)
     	}
     }
 

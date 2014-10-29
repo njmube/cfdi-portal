@@ -11,7 +11,7 @@
 			<th>Total</th>
 			<th>XML</th>
 			<th>Acuse</th>
-			<th>Eliminar</th>
+			<th>Referencia</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,14 +20,14 @@
 				<td>
 					<g:link action="show" id="${row.id}">
 						<abbr title="${row.receptor}">
-							${org.apache.commons.lang.StringUtils.substring(row.receptor,0,15)}
+							${org.apache.commons.lang.StringUtils.substring(row.receptor,0,10)}
 						</abbr>
 					</g:link>
 				</td>
 				<td>
 					<g:link action="show" id="${row.id}">
 						<abbr title="${row.emisor}">
-							${org.apache.commons.lang.StringUtils.substring(row.emisor,0,30)}
+							${org.apache.commons.lang.StringUtils.substring(row.emisor,0,20)}
 						</abbr>
 					</g:link>
 				</td>
@@ -44,9 +44,6 @@
 					<g:link action="descargarXml" id="${row.id}">
 						<i class="fa fa-file-code-o fa-lg"></i>
 					</g:link>
-					%{-- <g:link action="descargarPdf" id="${row.id}">
-						<i class="fa fa-file-pdf-o fa-lg"></i>
-					</g:link> --}%
 					<g:link action="mostrarXml" id="${row.id}">
 						<i class="fa fa-file-text-o fa-lg"></i>
 					</g:link>
@@ -62,11 +59,7 @@
 						</g:else>
 					</g:link>
 				</td>
-				<td>
-					<g:link action="delete" id="${row.id}" onClick="return confirm('Eliminar CFDI : $row.uuid Total: ($row.total)');" method="DELETE">
-						<i class="fa fa-trash fa-lg"></i>
-					</g:link>
-				</td>
+				<td>${row.referencia}</td>
 				
 				
 			</tr>

@@ -31,9 +31,11 @@
 							<input type='text' id="emisorField" placeholder="Emisor" class="form-control">
 						</div>
 						<div class="btn-group">
-							<input type='text' id="totalField" placeholder="Total" class="form-control" autofocus="autofocus">
+							<input type='text' id="folioField" placeholder="Folio" class="form-control" autofocus="autofocus">
 						</div>
-						
+						<div class="btn-group">
+							<input type='text' id="referenciaField" placeholder="Referencia" class="form-control">
+						</div>
 						<div class="btn-group">
 							<g:link action="index" class="btn btn-default">
 								<span class="glyphicon glyphicon-repeat"></span> Todos
@@ -97,10 +99,13 @@
 				});
 				
 				$("#emisorField").keyup(function(){
-  					table.DataTable().column(0).search( $(this).val() ).draw();
+  					table.DataTable().column(1).search( $(this).val() ).draw();
 				});
-				$("#totalField").keyup(function(){
+				$("#folioField").keyup(function(){
   					table.DataTable().column(5).search( $(this).val() ).draw();
+				});
+				$("#referenciaField").keyup(function(){
+  					table.DataTable().column(9).search( $(this).val() ).draw();
 				});
 				
 		});

@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile
 
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 class CfdiController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "GET"]
@@ -87,6 +87,7 @@ class CfdiController {
 	@Transactional
     def uploadCfdi(){
         def xml=request.getFile('xml')
+		def referencia=params.referencia
         if (xml.empty) {
             flash.message = 'CFDI incorrecto (archivo vacío)'
             redirect action:'index'
@@ -94,7 +95,7 @@ class CfdiController {
         }
         log.info 'Cargando CFDI con archivo: '+xml
         try {
-            Cfdi cfdi=cfdiService.cargarComprobante(xml)
+            Cfdi cfdi=cfdiService.cargarComprobante(xml,referencia)
 			flash.message="CFDI importado "+cfdi.toString()
 			redirect action:'index',params:[id:cfdi.id]
         }
@@ -109,18 +110,16 @@ class CfdiController {
 	@Transactional
     def batchUpload(){
         def count=0
+		def referencia=params.referencia
         request.getFiles("xmls[]").each { xml ->
             if (xml) {
                 try {
-                    Cfdi cfdi=cfdiService.cargarComprobante(xml)
+                    Cfdi cfdi=cfdiService.cargarComprobante(xml,referencia)
                     log.info(xml.originalFilename)
                     count++
-                    //flash.message="CFDI importado "+cfdi.toString()
-                    //redirect action:'index',params:[id:cfdi.id]
                 }
                 catch(CfdiException e) {
-                    flash.message=e.message
-                    redirect action:'index'
+                    
                 }
                 
             }

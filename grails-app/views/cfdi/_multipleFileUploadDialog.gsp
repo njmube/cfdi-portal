@@ -14,7 +14,12 @@
 					    <label for="inputFile">Archivos XML</label>
 					    <input type="file" id="inputFile" name="xmls[]" accept="application/xml" multiple="true">
 					    	<p class="help-block">Archivos a cargar</p>
-					 </div> 
+					 </div>
+					 <div class="form-group">
+					    <label for="inputFile">Referencia</label>
+					    <input type="string" id="referenciaField" name="referencia" >
+					    <p class="help-block">Referencia de control interno</p>
+					 </div>  
 				</div>
 
 				<div class="modal-footer">
