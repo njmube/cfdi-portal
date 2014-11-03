@@ -12,7 +12,7 @@
 			
 			<div class="row">
 				<div class="col-md-12">
-					<div class="well">
+					<div class="alert alert-info">
 						<h2>Comprobantes fiscales (CFDI)</h2>
 						<g:if test="${flash.message}">
 							<span class="label label-warning text-center">${flash.message}</span>
