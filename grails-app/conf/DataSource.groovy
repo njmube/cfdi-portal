@@ -26,7 +26,7 @@ environments {
             //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
             
             pooled = true
-            dbCreate="create-drop"
+            dbCreate="update"
             url = "jdbc:mysql://localhost/cfdi?autoReconnect=true"
             driverClassName = "com.mysql.jdbc.Driver"
             dialect = org.hibernate.dialect.MySQL5InnoDBDialect
