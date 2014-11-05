@@ -43,8 +43,8 @@ class BootStrap {
 				,apellidoMaterno:'GARCIA'
 				,nombres:'RAQUEL'
 				,nombre:' RAQUEL ARROYO GARCIA').save(flush:true)
-			UsuarioRole.create(adrian,userRole,true)
-			UsuarioRole.create(adrian,adminRole,true)
+			UsuarioRole.create(raquel,userRole,true)
+			UsuarioRole.create(raquel,adminRole,true)
 		}
 
 		
