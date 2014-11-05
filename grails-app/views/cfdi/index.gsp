@@ -5,6 +5,8 @@
 		<title>Comprobantes</title>
 		<asset:stylesheet src="datatables/datatables.css"/>
 		<asset:javascript src="datatables/datatables.js"/>
+		<asset:stylesheet src="jquery-ui.css"/>
+		<asset:javascript src="jquery-ui/autocomplete.js"/>
 	</head>
 	
 	<body>
@@ -26,12 +28,12 @@
 			
 			<div class="row">
 				<div class="col-md-12">
-					<div class="button-panel">
+					<div class="toolbar-panel">
 						<div class="btn-group">
 							<input type='text' id="emisorField" placeholder="Emisor" class="form-control">
 						</div>
 						<div class="btn-group">
-							<input type='text' id="folioField" placeholder="Folio" class="form-control" autofocus="autofocus">
+							<input type='text' id="grupoField" placeholder="Grupo" class="form-control" autofocus="autofocus">
 						</div>
 						<div class="btn-group">
 							<input type='text' id="referenciaField" placeholder="Referencia" class="form-control">
@@ -53,8 +55,14 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#multipleFileUploadDialog" data-toggle="modal" class="btn btn-default">
+									<a href="#multipleFileUploadDialog" data-toggle="modal" >
 										Carga batch
+									</a>
+								</li>
+								
+								<li>
+									<a href="#filterDialog" data-toggle="modal" >
+										<span class="glyphicon glyphicon-filter"></span> Busqueda avanzda
 									</a>
 								</li>
 							</ul>
@@ -66,7 +74,7 @@
 									Reportes <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Reporte 1</a></li>
+								<li><a href="#reportePorEmisorDialog" data-toggle="modal">CFDIs por Emisor</a></li>
 							    <li><a href="#">Reporte 2</a></li>
 							    <li class="divider"></li>
 							    <li><a href="#">Reporte 3</a></li>
@@ -86,6 +94,8 @@
 
 			<g:render template="uploadFileDialog"/>
 			<g:render template="multipleFileUploadDialog"/>
+			<g:render template="filterDialog"/>
+			<g:render template="reportePorEmisorDialog"/>
 			
 		</div>
 	
@@ -101,8 +111,8 @@
 				$("#emisorField").keyup(function(){
   					table.DataTable().column(1).search( $(this).val() ).draw();
 				});
-				$("#folioField").keyup(function(){
-  					table.DataTable().column(5).search( $(this).val() ).draw();
+				$("#grupoField").keyup(function(){
+  					table.DataTable().column(2).search( $(this).val() ).draw();
 				});
 				$("#referenciaField").keyup(function(){
   					table.DataTable().column(9).search( $(this).val() ).draw();

@@ -4,12 +4,18 @@ package com.luxsoft.cfdi
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
+
+@Secured(["hasAnyRole('ROLE_ADMIN')"])
 class ReceptorController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    //IS_AUTHENTICATED_REMEMBERED
+    //@Secured(["isAuthenticated()"])
+    @Secured(["hasRole('ROLE_ADMIN')"])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Receptor.list(params), model:[receptorInstanceCount: Receptor.count()]

@@ -23,7 +23,8 @@
         <g:render template="/_menu/navbar"/>
         
 		<g:layoutBody/>
-		
+
+		<g:render template="/_menu/footer"/>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 	</body>
 </html>

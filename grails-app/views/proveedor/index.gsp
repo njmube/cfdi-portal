@@ -26,7 +26,7 @@
 				<div class="col-md-12">
 					<div class="button-panel">
 						<div class="btn-group">
-							<input type='text' id="nombreField" placeholder="Proveedor" class="form-control" autofocus="autofocus">
+							<input type='text' id="emisorField" placeholder="Proveedor" class="form-control" autofocus="autofocus">
 						</div>
 						<div class="btn-group">
 							<input type='text' id="rfcField" placeholder="RFC" class="form-control" >
@@ -81,7 +81,7 @@
 						$("#emisorField").keyup(function(){
 		  					table.DataTable().column(0).search( $(this).val() ).draw();
 						});
-						$("#totalField").keyup(function(){
+						$("#rfcField").keyup(function(){
 		  					table.DataTable().column(1).search( $(this).val() ).draw();
 						});
 						

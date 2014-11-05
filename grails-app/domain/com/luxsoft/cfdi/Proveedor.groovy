@@ -34,16 +34,18 @@ class Proveedor {
     	telefono2 nullable:true
         telefono3 nullable:true
     	fax nullable:true
+        dateCreated nullable:true
+        lastUpdated nullable:true
     }
 
     static embedded = ['direccion']
 
     def beforeUpdate() {
-    	//capitalizarNombre()
+    	capitalizarNombre()
     }
 
     def beforeInsert() {
-    	//capitalizarNombre()
+    	capitalizarNombre()
     }
 
     private capitalizarNombre(){

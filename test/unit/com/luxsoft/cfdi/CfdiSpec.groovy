@@ -35,7 +35,6 @@ class CfdiSpec extends Specification {
     	cfdi.getComprobante()
     	cfdi.getTimbreFiscal()
     	cfdi.uuid==cfdi.getTimbreFiscal().uuid
-    	println cfdi.uuid
 
     }
 

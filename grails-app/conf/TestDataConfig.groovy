@@ -17,6 +17,29 @@ testDataConfig {
         */
     }
 }
+environments{
+    test{
+        testDataConfig{
+            sampleData {
+                'com.luxsoft.luxor.Direccion'{
+                    calle='calle'
+                    numeroInterior=''
+                    numeroExterior='100'
+                    colonia='COLONIA'
+                    municipio='LEON'
+                    codigoPostal='37296'
+                    estado='GUANAJUATO'
+                    pais='MEXICO'
+                }
+                
+                'com.luxsoft.cfdi.Cfdi'{
+                    xml=new File("test/integration/resources/xml/ALE950315J30_B66820.xml").getBytes()
+                }
+                
+            }
+        }
+    }
+}
 
 /*
 // sample for creating a single static value for the com.foo.Book's title property:

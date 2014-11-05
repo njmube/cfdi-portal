@@ -7,18 +7,34 @@
 				<h4 class="modal-title" id="myModalLabel">Cargar CFDI desde archivo XML</h4>
 			</div>
 			
-			<g:uploadForm name="uploadCfdi" class="form" action="uploadCfdi" >
+			<g:uploadForm name="uploadCfdi" class="form-horizontal" action="uploadCfdi" >
 				<div class="modal-body">
 					
 					<div class="form-group">
-					    <label for="inputFile">Comprobante fiscal digital CFDI</label>
-					    <input type="file" id="inputFile" name="xml" accept="application/xml">
-					    <p class="help-block">Seleccion el archico XML a cargar</p>
+					    <label for="inputFile" class="col-sm-4 control-label"> CFDI</label>
+					    <div class="col-sm-8">
+					    	<input type="file" id="inputFile" name="xml" accept="application/xml" required 
+					    		class="form-control">
+					    	<p class="help-block">Seleccion el archivo XML</p>
+					    </div>
 					 </div>
 					 <div class="form-group">
-					    <label for="inputFile">Referencia</label>
-					    <input type="string" id="referenciaField" name="referencia" >
-					    <p class="help-block">Referencia de control interno</p>
+					    <label for="ireferencia" class="col-sm-4 control-label">Referencia</label>
+					    <div class="col-sm-8">
+					    	<input  name="referencia" >
+					    	<p class="help-block">Referencia de control interno</p>
+					    </div>
+					 </div>
+					 
+					 <div class="form-group">
+					    <label for="inputFile" class="col-sm-4 control-label">Grupo</label>
+					    <div class="col-sm-8">
+					    	<g:select id="type" name="grupo" class="form-control"
+    							from="['COMBRAS','GASTOS']">
+    						</g:select>
+					    	<p class="help-block">Grupo o departamento  de control interno</p>
+					    </div>
+					    
 					 </div> 
 				</div>
 

@@ -4,14 +4,17 @@ package com.luxsoft.cfdi
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
+@Secured(["hasRole('ROLE_ADMIN')"])
 class ProveedorController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 70, 100)
         respond Proveedor.list(params), model:[proveedorInstanceCount: Proveedor.count()]
     }
 
@@ -19,6 +22,7 @@ class ProveedorController {
         respond proveedorInstance
     }
 
+    @Secured(["hasRole('ROLE_ADMIN')"])
     def create() {
         respond new Proveedor(params)
     }

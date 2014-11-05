@@ -6,20 +6,23 @@ import static org.springframework.http.HttpStatus.*
 
 import org.apache.commons.lang.exception.ExceptionUtils
 import org.springframework.web.multipart.MultipartFile
-
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
+import groovy.transform.ToString
+import org.grails.databinding.BindingFormat
 
 @Transactional(readOnly = false)
+@Secured(["hasAnyRole('ROLE_ADMIN')"])
 class CfdiController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "GET"]
 
     def cfdiService
 
+    
     def index(Integer max) {
-		
-        params.max = Math.min(max ?: 1000, 5000)
-		params.sort=params.sort?:'dateCreated'
+        params.max = Math.min(max ?: 100, 5000)
+		//params.sort=params.sort?:'dateCreated'
 		params.order='desc'
         respond Cfdi.list(params), model:[cfdiInstanceCount: Cfdi.count()]
     }
@@ -88,19 +91,22 @@ class CfdiController {
     def uploadCfdi(){
         def xml=request.getFile('xml')
 		def referencia=params.referencia
+		def grupo=params.grupo
+		def user=getAuthenticatedUser().username
         if (xml.empty) {
             flash.message = 'CFDI incorrecto (archivo vacío)'
             redirect action:'index'
             return
         }
-        log.info 'Cargando CFDI con archivo: '+xml
-        try {
-            Cfdi cfdi=cfdiService.cargarComprobante(xml,referencia)
-			flash.message="CFDI importado "+cfdi.toString()
-			redirect action:'index',params:[id:cfdi.id]
+		try {
+            log.info 'Cargando CFDI con archivo: '+xml
+            Cfdi cfdi=cfdiService.cargarComprobante(xml.getBytes(),xml.getOriginalFilename(),referencia,grupo,user)
+            flash.message="CFDI importado "+cfdi.toString()
+            redirect action:'show',params:[id:cfdi.id]
         }
         catch(CfdiException e) {
 			flash.message=e.message
+			println 'Error cargando CFDI: '+e.message
 			redirect action:'index'
         }
         
@@ -109,22 +115,26 @@ class CfdiController {
 	
 	@Transactional
     def batchUpload(){
-        def count=0
+        def correctos=0
+        def errores=0
+        def duplicados=0
 		def referencia=params.referencia
+        def grupo=params.grupo
+        def user=getAuthenticatedUser().username
         request.getFiles("xmls[]").each { xml ->
             if (xml) {
                 try {
-                    Cfdi cfdi=cfdiService.cargarComprobante(xml,referencia)
+                    Cfdi cfdi=cfdiService.cargarComprobante(xml.getBytes(),xml.getOriginalFilename(),referencia,grupo,user)
                     log.info(xml.originalFilename)
-                    count++
+                    correctos++
                 }
                 catch(CfdiException e) {
-                    
+                    errores++
                 }
                 
             }
         }
-        flash.message= "Archivos cargados $count "
+        flash.message= "Archivos cargados correctamente: $correctos  con errores: $errores  duplicados: $duplicados"
         redirect action:'index'
     }
 
@@ -145,15 +155,75 @@ class CfdiController {
         render(text: cfdi.comprobanteDocument.xmlText(), contentType: "text/xml", encoding: "UTF-8")
     }
 
-    def validarEnElSat(Long id){
-		println 'Validar en el sat'
-        flash.message="Validacion de"
-        redirect action:'index'
-    }
+    
 
     def verAcuse(Cfdi cfdi){
-        def acuse=cfdiService.validarEnElSat(cfdi)
+        //def acuse=cfdiService.validarEnElSat(cfdi)
+        if(!cfdi.acuse){
+            try {
+                cfdiService.validarEnElSat(cfdi)
+            }
+            catch(Exception e) {
+                flash.message="Error de comunicacion con el SAT: "+e.getMessage()
+                redirect action:'index'
+                return
+            }
+        }
+        def acuse=cfdiService.toAcuse(cfdi.acuse)
         def xml=cfdiService.toXml(acuse)
         render(text: xml, contentType: "text/xml", encoding: "UTF-8")
     }
+
+    def search( CfdiSeach example){
+		example.emisor=example.emisor?:'%'
+		example.referencia=example.referencia?:'%'
+        example.folio=example.folio?:'%'
+		example.fechaInicial=example.fechaInicial?:new Date()-10
+		example.fechaFinal=example.fechaFinal?:new Date()
+		example.uuid=example.uuid?:'%'
+		println 'Buscando cfdis con: '+example
+		/*
+        def query=Cfdi.where{
+			emisor=~example.emisor && referencia=~example.referencia && folio=~example.folio && (fecha>=example.fechaInicial && fecha<=example.fechaFinal) && uuid=~example.uuid}
+        def list=query.list(max:60,sort:'dateCreated')
+        render view:'index',model:[cfdiInstanceList:list,cfdiInstanceCount:query.count()]
+
+        */
+		params.max = example.max ?: 50
+		params.sort=params.sort?:'dateCreated'
+		params.order='desc'
+		
+		def args=[example.emisor
+			,example.referencia
+			,example.folio
+			,example.fechaInicial
+			,example.fechaFinal]
+		def hql="from Cfdi c where lower(c.emisor) like ?  and c.referencia like ? and c.folio like ? "+ 
+			" and date(c.fecha) between ? and ? "
+		if(example.total>0.0){
+			args.add(example.total)
+			hql+=" and c.total=?"
+		}
+		def list=Cfdi.findAll(hql,args,params)
+		render view:'index',model:[cfdiInstanceList:list,cfdiInstanceCount:list.size()]
+
+    }
+
+}
+
+@ToString(includeNames=true,includePackage=false)
+class CfdiSeach{
+    String emisor
+    String referencia
+	String folio
+	String uuid
+	Long max
+	BigDecimal total
+	
+	@BindingFormat('dd/MM/yyyy')
+	Date fechaInicial
+	
+	@BindingFormat('dd/MM/yyyy')
+	Date fechaFinal
+
 }

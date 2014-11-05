@@ -62,16 +62,39 @@
 					  	  		</div>
 					  		</div>
 					  		<div class="form-group">
+					  			
+					  	  		<label class="col-sm-2 control-label">Acuse (SAT)</label>
+					  	  		<div class="col-sm-4">
+					  	  			<p class="form-control-static">${cfdiInstance.acuseCodigoEstatus}</p>
+					  	  		</div>
+					  	  		<label class="col-sm-2 control-label">Estado (SAT)</label>
+					  	  		<div class="col-sm-4">
+					  	  			<p class="form-control-static">${cfdiInstance.acuseEstado}</p>
+					  	  		</div>
+					  		</div>
+
+					  		<div class="form-group">
 					  			<label class="col-sm-2 control-label">UUID</label>
 					  			<div class="col-sm-4">
 					  	  			<p class="form-control-static">${cfdiInstance.uuid}</p>
 					  	  		</div>
-					  	  			<label class="col-sm-2 control-label">Acuse (SAT)</label>
+					  			<label class="col-sm-2 control-label">Tipo</label>
+					  			<div class="col-sm-4">
+					  	  			<p class="form-control-static">${cfdiInstance.tipo}</p>
+					  	  		
+					  		</div>
+
+					  		<div class="form-group">
+					  			<label class="col-sm-2 control-label">Usuario</label>
+					  			<div class="col-sm-4">
+					  	  			<p class="form-control-static">${cfdiInstance.usuario}</p>
+					  	  		</div>
+					  	  		</div>
+					  	  			<label class="col-sm-2 control-label">Grupo</label>
 					  	  		<div class="col-sm-4">
-					  	  			<p class="form-control-static">${cfdiInstance.acuseCodigoEstatus}</p>
+					  	  			<p class="form-control-static">${cfdiInstance.grupo}</p>
 					  	  		</div>
 					  		</div>
-					  		
 						    
 						</form>
 					</div>
@@ -103,7 +126,9 @@
 									Operaciones <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Carga PDF</a></li>
+								<li><g:link action="delete" id="${cfdiInstance.id}" onclick="return confirm('Eliminar el CFDI');"> 
+									<i class="fa fa-trash"></i> Eliminar</g:link>
+								</li>
 							</ul>
 						</div>
 						<div class="btn-group">

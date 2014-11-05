@@ -2,16 +2,27 @@ package com.luxsoft.cfdi
 
 
 import groovy.transform.ToString
+
 import java.io.ByteArrayInputStream
+
+import groovy.transform.ToString
+
+
 import mx.gob.sat.cfd.x3.ComprobanteDocument
 import mx.gob.sat.cfd.x3.ComprobanteDocument.Comprobante
+import mx.gob.sat.cfd.x3.ComprobanteDocument.Comprobante.TipoDeComprobante;
 
+@ToString(excludes='version,xml,acuse,timbreFiscal,comprobanteDocument',includeNames=true,includePackage=false)
 class Cfdi {
+
+	//transient springSecurityService
 	
 	String uuid
 	Date fecha
 	String folio
 	String serie
+	String tipo
+	String grupo
 	String emisor
 	String emisorRfc
 	String receptor
@@ -27,13 +38,17 @@ class Cfdi {
 	byte[] acuse
 
 	String referencia
+	String usuario
 	
+	Date dateCreated
+	Date lastUpdated
+
 	ComprobanteDocument comprobanteDocument
 	
 	TimbreFiscal timbreFiscal
 	
-	Date dateCreated
-	Date lastUpdated
+	
+
 
 	static constraints = {
 		serie nullable:true,maxSize:10
@@ -49,9 +64,14 @@ class Cfdi {
 		receptorRfc maxSize:20
 		emisorRfc maxSize:20
 		referencia nullable:true,maxSize:20
+		tipo nullable:true,inList:['INGRESO','EGRESO','TRASLADO']
+		grupo nullable:true,maxSize:20
+		//dateCreated nullabel:true
+		dateCreated nullable:true
+		lastUpdated nullable:true
 	}
 	
-	static transients = ['comprobanteDocument','timbreFiscal']
+	static transients = ['comprobanteDocument','timbreFiscal','securityService']
 	
 	public Cfdi() {}
 
@@ -93,11 +113,31 @@ class Cfdi {
 		this.receptor=c.receptor.nombre
 		this.receptorRfc=c.receptor.rfc
 		this.total=c.getTotal()
+		//this.tipo=c.getTipoDeComprobante()==TipoDeComprobante.EGRESO?:'EGRESO'
+		switch(c.getTipoDeComprobante()){
+			case TipoDeComprobante.EGRESO:
+				this.tipo='EGRESO'
+				break
+			case TipoDeComprobante.INGRESO:
+				this.tipo='INGRESO'
+				break
+			case TipoDeComprobante.TRASLADO:
+				this.tipo='TRASLADO'
+				break	
+		}
 	}
 	
-	String toString(){
-		return "($emisor) Id:$id   Serie:$serie Folio:$folio  UUID:$uuid "
-	}
+	// def beforeUpdate() {
+ //      usuario = springSecurityService.currentAuthenticatedUsername()
+ //   	}
+
+ //   	def beforeInsert() {
+ //      usuario = springSecurityService.currentAuthenticatedUsername()
+ //   	}
+	
+	// String toString(){
+	// 	return "($emisor) Id:$id   Serie:$serie Folio:$folio  UUID:$uuid "
+	// }
 
 	
 	

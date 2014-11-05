@@ -10,7 +10,8 @@
 				<i class="fa fa-home fa-lg"></i> Luxor CFDI Portal
 			</g:link>
 		</div>
-<%--		<sec:ifLoggedIn>--%>
+
+		<sec:ifLoggedIn>
 		
 		<div class="collapse navbar-collapse" id="mainMenu">
 			
@@ -41,13 +42,14 @@
 
 			%{-- <nav:menu class="nav navbar-nav" scope="user/" /> --}%
 			<ul class="nav navbar-nav navbar-right">
-<%--				<g:render template="/_menu/user"/>--%>
+				<g:render template="/_menu/user"/>
 				
 			</ul>
 			
+			
 		</div>
 		
-<%--		</sec:ifLoggedIn>--%>
+		</sec:ifLoggedIn>
 	</div>
 	
 </nav>

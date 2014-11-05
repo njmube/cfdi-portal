@@ -20,9 +20,10 @@
 				<td>${row.getImporte() }</td>
 				<td>
 					<g:if test="${row.informacionAduaneraArray }">
-						${res.PEDIMENTO_FECHA=cc.informacionAduaneraArray[0]?.fecha.getTime()}
-						${res.PEDIMENTO=cc.informacionAduaneraArray[0]?.numero}
-						${res.ADUANA=cc.informacionAduaneraArray[0]?.aduana }
+						${row.informacionAduaneraArray[0].numero }
+						%{-- ${res.PEDIMENTO_FECHA==cc?.informacionAduaneraArray[0]?.fecha.getTime()}
+						${res.PEDIMENTO==cc?.informacionAduaneraArray[0]?.numero}
+						${res.ADUANA==cc?.informacionAduaneraArray[0]?.aduana } --}%
 					</g:if>
 				</td>
 			<%--

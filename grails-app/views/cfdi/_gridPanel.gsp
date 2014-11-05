@@ -4,14 +4,17 @@
 		<tr>
 			<th>Receptor</th>
 			<th>Emisor</th>
+			<th>Grupo</th>
 			<th>Fecha</th>
 			<th>UUID</th>
-			<th>Serie</th>
+			
+			%{-- <th>Serie</th> --}%
 			<th>Folio</th>
 			<th>Total</th>
 			<th>XML</th>
 			<th>Acuse</th>
 			<th>Referencia</th>
+			<th>Importado</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -31,13 +34,15 @@
 						</abbr>
 					</g:link>
 				</td>
+				<td>${row.grupo}</td>
 				<td><g:formatDate date="${row.fecha}" format="dd-MM-yyyy"/></td>
 				<td>
 					<abbr title="${row.uuid}">
 					${org.apache.commons.lang.StringUtils.substringAfterLast(row.uuid,'-')}
 					</abbr>
 				</td>
-				<td>${row.serie}</td>
+				
+				%{-- <td>${row.serie}</td> --}%
 				<td>${row.folio}</td>
 				<td><g:formatNumber number="${row.total}" type="currency"/></td>
 				<td>
@@ -60,7 +65,7 @@
 					</g:link>
 				</td>
 				<td>${row.referencia}</td>
-				
+				<td><g:formatDate date="${row.dateCreated}" format="dd-MM HH:mm"/></td>
 				
 			</tr>
 		</g:each>
