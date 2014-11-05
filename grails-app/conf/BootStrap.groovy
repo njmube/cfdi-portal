@@ -8,6 +8,7 @@ class BootStrap {
 
     	def adminRole=Role.findOrSaveWhere(authority:'ROLE_ADMIN')
 		def userRole=Role.findOrSaveWhere(authority:'ROLE_USER')
+
 		
 		def admin=Usuario.findByUsername('admin')
 		if(!admin){
@@ -29,6 +30,19 @@ class BootStrap {
 				,apellidoMaterno:'PANIAGUA'
 				,nombres:'ADRIAN'
 				,nombre:' ADRIAN SANCHEZ PANIAGUA').save(flush:true)
+			UsuarioRole.create(adrian,userRole,true)
+			UsuarioRole.create(adrian,adminRole,true)
+		}
+
+
+		def raquel=Usuario.findByUsername('rarroyo')
+		if(!raquel){
+			raquel=new Usuario(username:'rarroyo'
+				,password:'rarroyo'
+				,apellidoPaterno:'ARROYO'
+				,apellidoMaterno:'GARCIA'
+				,nombres:'RAQUEL'
+				,nombre:' RAQUEL ARROYO GARCIA').save(flush:true)
 			UsuarioRole.create(adrian,userRole,true)
 			UsuarioRole.create(adrian,adminRole,true)
 		}
