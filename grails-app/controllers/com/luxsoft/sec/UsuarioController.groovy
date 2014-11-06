@@ -65,7 +65,7 @@ class UsuarioController {
     }
 
     @Transactional
-    def update(Usuario usuarioInstance) {
+    def update(Usuario usuarioInstance ) {
         if (usuarioInstance == null) {
             notFound()
             return
@@ -76,7 +76,18 @@ class UsuarioController {
             return
         }
 
-        usuarioInstance.save flush:true
+        UsuarioRole.removeAll(usuarioInstance,false)
+
+        def roles=params.roles
+        roles.each{
+            //println 'Evaluando rol: '+rol
+            def rol=Role.get(it)
+            if(!UsuarioRole.exists(usuarioInstance.id,it.toLong())){
+                UsuarioRole.create(usuarioInstance,rol,false)
+            }
+            
+        }
+        usuarioInstance.save failOnError:true
 
         request.withFormat {
             form multipartForm {
@@ -85,6 +96,7 @@ class UsuarioController {
             }
             '*'{ respond usuarioInstance, [status: OK] }
         }
+        
     }
 
     @Transactional

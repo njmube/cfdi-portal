@@ -49,12 +49,14 @@
 		</ul>
 		
 		
-
+		<g:form class="form-horizontal" action="update" method="PUT">
 		<div class="tab-content">
 			
 			<div role="tabpanel" class="tab-pane active" id="usuario">
 				<div class="form-panel">
-					<form class="form-horizontal" >
+					<g:hiddenField name="id" value="${usuarioInstance.id}"/>
+					<g:hiddenField name="version" value="${usuarioInstance.version}"/>
+					<g:hiddenField name="password" value="${usuarioInstance.password}"/>
 					<f:with bean="${usuarioInstance}">
 						<f:field property="username" input-class="form-control"/>
 						<f:field property="apellidoPaterno" input-class="form-control"/>
@@ -65,7 +67,16 @@
 						<f:field property="accountLocked" input-class="form-control" label="Cuenta bloqueada"/>
 						<f:field property="passwordExpired" input-class="form-control" label="Password vencido"/>
 					</f:with>
-					</form>
+
+					<div class="form-group">
+				    	<div class="col-sm-offset-8 col-sm-4">
+				    		
+				      		<button type="submit" class="btn btn-primary">
+				      			<span class="glyphicon glyphicon-floppy-save"></span> Salvar
+				      		</button>
+				    	</div>
+				  	</div>
+					
 				</div>
 			</div>
 
@@ -80,11 +91,12 @@
 				  				</tr>
 				  			</thead>
 				  			<tbody>
-				  				<g:each in="${usuarioInstance.getAuthorities()}" var="row" status="i">
+				  				<g:each in="${com.luxsoft.sec.Role.list(sort:'id',order:'asc')}" var="row" status="i">
 				  					<tr>
 				  						<td>${fieldValue(bean:row,field:"id")}</td>
 				  						<td>${fieldValue(bean:row,field:"authority")}</td>
-				  						<td><g:checkBox name="roles" value="${row.id}" checked="true"/></td>
+				  						<td><g:checkBox name="roles" value="${row.id}" 
+				  							checked="${usuarioInstance.getAuthorities().contains(row)}"/></td>
 				  					</tr>
 				  				</g:each>
 				  			</tbody>
@@ -93,7 +105,7 @@
 			  </div>
 
 		</div>
-		
+		</g:form>
 		  
 		
 		

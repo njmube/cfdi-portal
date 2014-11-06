@@ -120,7 +120,6 @@ class ProveedorController {
 
         def term='%'+params.term.trim()+'%'
         def query=Proveedor.where{
-            //apellidoPaterno=~term || apellidoMaterno=~term || nombres=~term
             nombre=~term
          }
         def list=query.list(max:30, sort:"nombre")
