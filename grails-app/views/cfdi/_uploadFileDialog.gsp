@@ -30,7 +30,7 @@
 					    <label for="inputFile" class="col-sm-4 control-label">Grupo</label>
 					    <div class="col-sm-8">
 					    	<g:select id="type" name="grupo" class="form-control"
-    							from="['COMBRAS','GASTOS']">
+    							from="['COMPRAS','GASTOS']">
     						</g:select>
 					    	<p class="help-block">Grupo o departamento  de control interno</p>
 					    </div>

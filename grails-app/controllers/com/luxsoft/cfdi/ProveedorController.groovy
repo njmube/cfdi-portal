@@ -5,6 +5,7 @@ package com.luxsoft.cfdi
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.JSON
 
 @Transactional(readOnly = true)
 @Secured(["hasRole('ROLE_ADMIN')"])
@@ -113,5 +114,27 @@ class ProveedorController {
         [rows:rows,totalRows:total,proveedorInstance:proveedor]
 
         
+    }
+
+    def getProveedoresAsJSON() {
+
+        def term='%'+params.term.trim()+'%'
+        def query=Proveedor.where{
+            //apellidoPaterno=~term || apellidoMaterno=~term || nombres=~term
+            nombre=~term
+         }
+        def list=query.list(max:30, sort:"nombre")
+        println 'REsultado: '+list.size()
+        list=list.collect{ c->
+            def nombre=c.nombre
+            [id:c.id,
+            label:nombre,
+            value:nombre,
+            nombre:nombre
+            ]
+        }
+        def res=list as JSON
+        
+        render res
     }
 }

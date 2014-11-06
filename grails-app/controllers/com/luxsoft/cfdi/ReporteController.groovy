@@ -19,11 +19,12 @@ class ReporteController {
 		command.validate()
 		if(command.hasErrors()){
 			log.info 'Errores de validacion al ejecurar reporte'
-			render view:'ausentismoPorDia',model:[reportCommand:command]
+			render view:'comprobantesPorEmisor',model:[reportCommand:command]
 			return
 		}
 		def repParams=[:]
-		repParams['FECHA']=command.fecha
+		repParams['PROVEEDOR_ID']=command.proveedor.id
+		repParams['REFERENCIA']=command.referencia?:'%'
 		
 		repParams.reportName=params.reportName?:'FaltaNombre Del Reporte'
 		ByteArrayOutputStream  pdfStream=runReport(repParams)
@@ -59,6 +60,8 @@ class PorEmisorCommand{
 	String referencia
 
 	static constraints={
-		
+		fechaInicial nullable:true
+		fechaFinal nullable:true
+		referencia nullable:true
 	}
 }

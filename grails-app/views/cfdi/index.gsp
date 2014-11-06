@@ -74,7 +74,8 @@
 									Reportes <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#reportePorEmisorDialog" data-toggle="modal">CFDIs por Emisor</a></li>
+								%{-- <li><a href="#reportePorEmisorDialog" data-toggle="modal">CFDIs por Emisor</a></li> --}%
+								<li><g:link controller="reporte" action="comprobantesPorEmisor"> CFDIs por Emisor</g:link></li>
 							    <li><a href="#">Reporte 2</a></li>
 							    <li class="divider"></li>
 							    <li><a href="#">Reporte 3</a></li>
@@ -117,8 +118,11 @@
 				$("#referenciaField").keyup(function(){
   					table.DataTable().column(9).search( $(this).val() ).draw();
 				});
+
+			
 				
 		});
+
 	</script>
 		
 	</body>
