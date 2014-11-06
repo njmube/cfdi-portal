@@ -13,7 +13,7 @@
 			<th>Total</th>
 			<th>XML</th>
 			<th>Acuse</th>
-			<th>Referencia</th>
+			<th>Ref</th>
 			<th>Importado</th>
 		</tr>
 	</thead>
@@ -30,11 +30,11 @@
 				<td>
 					<g:link action="show" id="${row.id}">
 						<abbr title="${row.emisor}">
-							${org.apache.commons.lang.StringUtils.substring(row.emisor,0,20)}
+							${org.apache.commons.lang.StringUtils.substring(row.emisor,0,50)}
 						</abbr>
 					</g:link>
 				</td>
-				<td>${row.grupo}</td>
+				<td>${org.apache.commons.lang.StringUtils.substring(row.grupo,0,3)}</td>
 				<td><g:formatDate date="${row.fecha}" format="dd-MM-yyyy"/></td>
 				<td>
 					<abbr title="${row.uuid}">

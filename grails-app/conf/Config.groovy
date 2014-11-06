@@ -177,6 +177,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
     '/login/**':                      ['permitAll'],
-    '/logout/**':                     ['permitAll']
+    '/logout/**':                     ['permitAll'],
+    '/user/**':    ['permitAll']
 ]
 
+//grails.plugin.springsecurity. ui.password.validationRegex = "^.*(?=.*\\d)(?=.*[a-zA-Z])"
+grails.plugin.springsecurity. ui.password.validationRegex = ""

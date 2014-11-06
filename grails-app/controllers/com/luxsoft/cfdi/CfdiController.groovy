@@ -162,6 +162,8 @@ class CfdiController {
         if(!cfdi.acuse){
             try {
                 cfdiService.validarEnElSat(cfdi)
+                flash.message="Validación en el SAT exitosa"
+                redirect action:'show',params:[id:cfdi.id]
             }
             catch(Exception e) {
                 flash.message="Error de comunicacion con el SAT: "+e.getMessage()
@@ -181,7 +183,7 @@ class CfdiController {
 		example.fechaInicial=example.fechaInicial?:new Date()-10
 		example.fechaFinal=example.fechaFinal?:new Date()
 		example.uuid=example.uuid?:'%'
-		println 'Buscando cfdis con: '+example
+		//println 'Buscando cfdis con: '+example
 		/*
         def query=Cfdi.where{
 			emisor=~example.emisor && referencia=~example.referencia && folio=~example.folio && (fecha>=example.fechaInicial && fecha<=example.fechaFinal) && uuid=~example.uuid}

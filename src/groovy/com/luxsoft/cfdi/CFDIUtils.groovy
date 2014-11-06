@@ -54,6 +54,21 @@ class CFDIUtils {
 
 		
 	}
+
+	static Direccion toDireccion(TUbicacion uf){
+		Direccion d=new Direccion()
+		d.calle=uf.calle
+		d.numeroExterior=uf.getNoExterior()
+		d.numeroInterior=uf.getNoInterior()
+		d.colonia=uf.colonia?:uf.getLocalidad()
+		d.municipio=uf.municipio
+		d.estado=uf.estado
+		d.pais=uf.pais
+		d.codigoPostal=uf.codigoPostal
+		return d
+
+		
+	}
 	
 	public validarDocumento(ComprobanteDocument document) {
 		List<XmlValidationError> errors=findErrors(document);

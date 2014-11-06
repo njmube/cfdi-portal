@@ -16,6 +16,12 @@
 				</g:form> --}%
 				%{-- <g:link controller="logout" method="POST"><i class="fa fa-power-off"></i> Salir</g:link> --}%
 			</li>
+			<sec:ifAllGranted roles="ROLE_ADMIN">
+				<li>
+					<g:link controller="usuario" ><i class="fa fa-users"></i> Usuarios</g:link>
+				</li>
+			</sec:ifAllGranted>
+			
 		</ul>
 	</sec:ifLoggedIn>
 </li>

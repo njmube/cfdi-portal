@@ -70,9 +70,10 @@ class CfdiService {
         }
         catch(Exception e) {
             String msg=ExceptionUtils.getRootCauseMessage(e)
-            cfdi.acuseEstado='PENDIENTE'
+            cfdi.acuseEstado='SIN VALIDAR'
             cfdi.acuseCodigoEstatus=msg
-            throw new CfdiException(message:msg,cfdi:cfdi)
+            //throw new CfdiException(message:msg,cfdi:cfdi)
+            //return null
         }
         
 		

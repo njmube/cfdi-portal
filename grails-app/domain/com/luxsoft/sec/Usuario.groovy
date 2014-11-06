@@ -21,6 +21,13 @@ class Usuario {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		apellidoPaterno()
+		apellidoMaterno()
+		nombre()
+		enabled()
+		accountExpired()
+		accountLocked()
+		passwordExpired()
 	}
 
 	static mapping = {
