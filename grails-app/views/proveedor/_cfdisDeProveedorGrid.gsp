@@ -3,7 +3,6 @@
 	<thead>
 		<tr>
 			<th>Receptor</th>
-			<th>Emisor</th>
 			<th>Fecha</th>
 			<th>UUID</th>
 			<th>Serie</th>
@@ -25,13 +24,7 @@
 						</abbr>
 					</g:link>
 				</td>
-				<td>
-					<g:link controller="cfdi" action="show" id="${row.id}">
-						<abbr title="${row.emisor}">
-							${org.apache.commons.lang.StringUtils.substring(row.emisor,0,30)}
-						</abbr>
-					</g:link>
-				</td>
+				
 				<td><g:formatDate date="${row.fecha}" format="dd-MM-yyyy"/></td>
 				<td>
 					<abbr title="${row.uuid}">
