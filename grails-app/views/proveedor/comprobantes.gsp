@@ -25,13 +25,16 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="button-panel">
+						
+						<div class="btn-group">
+							<input type='text' id="uuidField" placeholder="Buscar" class="form-control" autofocus="on">
+						</div>
+
 						<div class="btn-group">
 							<input type='text' id="totalField" placeholder="Total" class="form-control" >
 						</div>
 
-						<div class="btn-group">
-							<input type='text' id="uuidField" placeholder="UUID" class="form-control" >
-						</div>
+						
 						
 						<div class="btn-group">
 							<g:link action="show" class="btn btn-default" id="${proveedorInstance.id}">
@@ -77,7 +80,7 @@
 						});
 						
 						$("#uuidField").keyup(function(){
-		  					table.DataTable().column(3).search( $(this).val() ).draw();
+		  					table.DataTable().search( $(this).val() ).draw();
 						});
 						$("#totalField").keyup(function(){
 		  					table.DataTable().column(6).search( $(this).val() ).draw();
