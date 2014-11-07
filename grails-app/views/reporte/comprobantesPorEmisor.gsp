@@ -20,7 +20,7 @@
 		<div class="col-sm-12">
 		
 		<g:form action="comprobantesPorEmisor" class="form-horizontal">
-			<g:hiddenField name="reportName" value="ComprobantesPorEmisorReferencia"/>
+			<g:hiddenField name="reportName" value="ComprobantesPorEmisor"/>
 			<g:hiddenField id="proveedorId" name="proveedor.id"  />
 			<fieldset>
 						<legend> Parámetros</legend>
@@ -34,7 +34,7 @@
 										optionKey="id"
 											
 									/> --}%
-									<input id="nombre" type="text" name="nombre" autocomplete="off" required class="form-control" autofocus>
+									<input id="nombre" type="text" name="nombre" autocomplete="off" class="form-control" autofocus>
 								</div>
 								
 							</div>

@@ -23,10 +23,14 @@ class ReporteController {
 			return
 		}
 		def repParams=[:]
-		repParams['PROVEEDOR_ID']=command.proveedor.id
+
+		repParams['EMISOR_RFC']=command.proveedor.rfc
+		if(command.nombre=='%'){
+			repParams['EMISOR_RFC']='%'
+		}
 		repParams['REFERENCIA']=command.referencia?:'%'
 		
-		repParams.reportName=params.reportName?:'FaltaNombre Del Reporte'
+		repParams.reportName=params.reportName
 		ByteArrayOutputStream  pdfStream=runReport(repParams)
 		render(file: pdfStream.toByteArray(), contentType: 'application/pdf'
 			,fileName:repParams.reportName)
@@ -55,6 +59,7 @@ class ReporteController {
 class PorEmisorCommand{
 
 	Proveedor proveedor
+	String nombre
 	Date fechaInicial=new Date()-30
 	Date fechaFinal=new Date()
 	String referencia
@@ -63,5 +68,6 @@ class PorEmisorCommand{
 		fechaInicial nullable:true
 		fechaFinal nullable:true
 		referencia nullable:true
+		nombre nullable:true
 	}
 }

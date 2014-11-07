@@ -27,6 +27,8 @@ grails.project.dependency.resolution = {
     inherits("global") {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
+        //excludes 'itext'
+        excludes "grails-docs"
     }
     log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
@@ -69,6 +71,10 @@ grails.project.dependency.resolution = {
         //compile 'axis:axis:1.4'
         compile 'org.apache.commons:commons-compress:1.1'
         //compile 'org.bouncycastle:bcprov-jdk14:1.45'
+        build('org.grails:grails-docs:2.4.3') {
+            excludes 'itext'
+        }
+
     }
 
     plugins {
@@ -96,7 +102,9 @@ grails.project.dependency.resolution = {
 
         
         //compile ":console:1.5.1"
-        compile ":jasper:1.10.0"
+        //compile ":jasper:1.10.0"
+        //compile ":jasper:1.9.0"
+        compile ":jasper:1.11.0-SNAPSHOT"
         compile ":spring-security-core:2.0-RC4"
 
         //compile ":mail:1.0.7"

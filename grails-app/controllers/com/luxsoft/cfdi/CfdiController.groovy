@@ -10,6 +10,7 @@ import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import groovy.transform.ToString
 import org.grails.databinding.BindingFormat
+import grails.validation.Validateable
 
 @Transactional(readOnly = false)
 @Secured(["hasAnyRole('ROLE_ADMIN')"])
@@ -214,6 +215,7 @@ class CfdiController {
 }
 
 @ToString(includeNames=true,includePackage=false)
+@Validateable
 class CfdiSeach{
     String emisor
     String referencia

@@ -65,6 +65,11 @@
 										<span class="glyphicon glyphicon-filter"></span> Busqueda avanzda
 									</a>
 								</li>
+								<li>
+									<g:link controller="modificacionReferencia" action="index" >
+										<i class="fa fa-wrench"></i> Referencias
+									</g:link>
+								</li>
 							</ul>
 						</div>
 						<div class="btn-group">

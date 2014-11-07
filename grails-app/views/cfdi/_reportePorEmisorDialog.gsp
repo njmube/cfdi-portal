@@ -9,7 +9,7 @@
 			
 			<g:form  class="form-horizontal" controller="reporte" action="comprobantesPorEmisor" >
 				<div class="modal-body">
-					<g:hiddenField name="reportName" value="CfdisPorEmisor"/>
+					<g:hiddenField name="reportName" value="ComprobantesDigitales"/>
 					<fieldset>
 						<legend> Parámetros</legend>
 						<f:with bean="${new com.luxsoft.cfdi.PorEmisorCommand()}">
