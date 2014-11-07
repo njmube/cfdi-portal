@@ -54,7 +54,8 @@
 		<script type="text/javascript">
 		$(function(){
 			$("#nombre").autocomplete({
-				source:'/cfdi-portal/proveedor/getProveedoresAsJSON',
+				
+				source:'<g:createLink controller="proveedor" action="getProveedoresAsJSON"/>',
 				minLength:3,
 				select:function(e,ui){
 					console.log('Valor seleccionado: '+ui.item.id);
