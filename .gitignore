@@ -54,3 +54,4 @@ atlassian-ide-plugin.xml
 /*.jar
 wrapper/*.jar
 
+.groovy/suggestions.xdsl
