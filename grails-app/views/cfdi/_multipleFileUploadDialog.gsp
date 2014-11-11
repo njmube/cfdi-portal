@@ -34,8 +34,15 @@
     						</g:select>
 					    	<p class="help-block">Grupo o departamento  de control interno</p>
 					    </div>
-					    
 					 </div> 
+
+					 <div class="form-group">
+					    <label for="reporteFile" class="col-sm-4 control-label"> Reporte</label>
+					    <div class="col-sm-8">
+					    	<g:checkBox name="reporte" value="${false}" />
+					    </div>
+					 </div>
+
 				</div>
 
 				<div class="modal-footer">
