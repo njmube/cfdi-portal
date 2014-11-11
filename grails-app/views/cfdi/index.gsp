@@ -72,7 +72,7 @@
 								</li>
 								<li>
 									<a href="#importarImpapModal" data-toggle="modal" >
-										Carga batch
+										Importar de IMPAP
 									</a>
 								</li>
 								
@@ -148,10 +148,10 @@
 
 				<g:form class="form-horizontal" action="importarXmlImpap" >
 					<div class="modal-body">
-						<f:with with="${com.luxsoft.cfdi.YearMesCommand()}">
+						<f:with bean="${new com.luxsoft.cfdi.YearMesCommand()}">
 							<f:field property="mes"   input-field="form-control"/>
 							<f:field property="year"  input-field="form-control"/>
-							<f:field property="referencia" input-field="form-control"/>
+							
 						</f:with>
 					</div>	
 					<div class="modal-footer">

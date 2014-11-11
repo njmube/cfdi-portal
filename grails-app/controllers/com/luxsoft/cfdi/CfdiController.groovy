@@ -9,8 +9,12 @@ import org.springframework.web.multipart.MultipartFile
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import groovy.transform.ToString
+
+import org.eclipse.jdt.core.CorrectionEngine;
 import org.grails.databinding.BindingFormat
 import grails.validation.Validateable
+
+import groovy.sql.Sql
 
 @Transactional(readOnly = false)
 @Secured(["hasAnyRole('ROLE_ADMIN','ROLE_OPERADOR')"])
@@ -19,11 +23,12 @@ class CfdiController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "GET"]
 
     def cfdiService
+	def dataSource_importacion
 
     
     def index(Integer max) {
         params.max = Math.min(max ?: 100, 5000)
-		//params.sort=params.sort?:'dateCreated'
+		params.sort=params.sort?:'dateCreated'
 		params.order='desc'
         respond Cfdi.list(params), model:[cfdiInstanceCount: Cfdi.count()]
     }
@@ -122,12 +127,14 @@ class CfdiController {
 		def referencia=params.referencia
         def grupo=params.grupo
         def user=getAuthenticatedUser().username
+		def proveedorRfc 
         request.getFiles("xmls[]").each { xml ->
             if (xml) {
                 try {
                     Cfdi cfdi=cfdiService.cargarComprobante(xml.getBytes(),xml.getOriginalFilename(),referencia,grupo,user)
                     log.info(xml.originalFilename)
                     correctos++
+					proveedorRfc=cfdi.emisorRfc
                 }
                 catch(CfdiException e) {
                     errores++
@@ -135,6 +142,14 @@ class CfdiController {
                 
             }
         }
+		def reporte =params.boolean('reporte')
+		
+		if(reporte){
+			def proveedor =Proveedor.findByRfc(proveedorRfc)
+			redirect controller:'reporte',action:'comprobantesPorEmisor',params:['proveedor.id':proveedor.id]
+			return
+		}
+		
         flash.message= "Archivos cargados correctamente: $correctos  con errores: $errores  duplicados: $duplicados"
         redirect action:'index'
     }
@@ -211,8 +226,77 @@ class CfdiController {
 		render view:'index',model:[cfdiInstanceList:list,cfdiInstanceCount:list.size()]
 
     }
+	
+	def importarXmlImpap(YearMesCommand command){
+
+		//def user=getAuthenticatedUser().username
+		def user="name"
+		def grupo='COMPRAS'
+		def correctos=0
+		def errores=0
+		def duplicados=0
+		def year=2014
+		def mes=10
+
+	
+		println params
+		
+		
+		command.validate()
+		
+		if(command.hasErrors()){
+			log.info 'Errores de validacion al ejecutar el command'
+			command.errors.each{
+				println it
+			}
+			redirect action:'index'
+			return
+		}
+
+		println 'Importando Xml para :'+command.mes +" / "+params.year+ " / " +params.mes + "/ "+ params.referencia
+		
+		println params
+
+		def db=new Sql(dataSource_importacion)
+		def res=db.eachRow("select uuid,xml,xml_name from cfdi where year(fecha)=? and  month(fecha)=?",[command.year,command.mes]) { row ->
+			println 'Procesando '+row
+			byte[] xml=row.xml
+			try {
+				log.info 'Cargando CFDI con archivo: '+row.uuid
+				Cfdi cfdi=cfdiService.cargarComprobante(row.xml,row.xml_name,command.referencia,grupo,user)
+				//flash.message="CFDI importado "+cfdi.toString()
+				println "CFDI importado "+cfdi.toString()
+				correctos++
+			} catch (Exception e) {
+			    e.printStackTrace()
+				errores++
+			}
+
+		}	 
+
+		flash.message= "Archivos cargados correctamente: $correctos  con errores: $errores  duplicados: $duplicados"
+		redirect action:'index'
+
+
+
+
+	}
 
 }
+
+@Validateable
+class YearMesCommand{
+	Integer year
+	Integer mes
+	String referencia 
+	
+	static constraints = {
+		year inList:2014..2018
+		mes inList:1..12
+		referencia nullable:true
+	}
+}
+
 
 @ToString(includeNames=true,includePackage=false)
 @Validateable

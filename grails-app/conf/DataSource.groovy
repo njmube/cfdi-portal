@@ -14,6 +14,8 @@ hibernate {
     flush.mode = 'manual' // OSIV session flush mode outside of transactional context
 }
 
+
+
 // environment specific settings
 environments {
     development {
@@ -27,7 +29,7 @@ environments {
             
             pooled = true
             dbCreate="update"
-            url = "jdbc:mysql://localhost/cfdi?autoReconnect=true"
+            url = "jdbc:mysql://10.10.1.225/cfdi?autoReconnect=true"
             driverClassName = "com.mysql.jdbc.Driver"
             dialect = org.hibernate.dialect.MySQL5InnoDBDialect
             username = "root"
@@ -46,7 +48,27 @@ environments {
                 maxWait = 10000
             }
         }
+		dataSource_importacion{
+			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+			driverClassName = 'com.mysql.jdbc.Driver'
+			username = 'root'
+			password = 'sys'
+			url = 'jdbc:mysql://10.10.1.227/impapx'
+			dbCreate = ''
+			readOnly=true
+			properties {
+				maxActive = 4
+				maxIdle = 2
+				minIdle = 1
+				initialSize = 1
+				minEvictableIdleTimeMillis = 60000
+				timeBetweenEvictionRunsMillis = 60000
+				maxWait = 10000
+				validationQuery = "/* ping */"
+			}
+	   }
     }
+		
     test {
         dataSource {
             dbCreate = "update"
@@ -79,5 +101,29 @@ environments {
           
           
         }
+		
+		dataSource_importacion{
+			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+			driverClassName = 'com.mysql.jdbc.Driver'
+			username = 'root'
+			password = 'sys'
+			url = 'jdbc:mysql://10.10.1.227/impapx'
+			dbCreate = ''
+			readOnly=true
+			properties {
+				maxActive = 4
+				maxIdle = 2
+				minIdle = 1
+				initialSize = 1
+				minEvictableIdleTimeMillis = 60000
+				timeBetweenEvictionRunsMillis = 60000
+				maxWait = 10000
+				validationQuery = "/* ping */"
+			}
+        }  
+
     }
+	
+    
 }
+
