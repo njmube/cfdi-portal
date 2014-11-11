@@ -13,7 +13,7 @@ import org.grails.databinding.BindingFormat
 import grails.validation.Validateable
 
 @Transactional(readOnly = false)
-@Secured(["hasAnyRole('ROLE_ADMIN')"])
+@Secured(["hasAnyRole('ROLE_ADMIN','ROLE_OPERADOR')"])
 class CfdiController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "GET"]

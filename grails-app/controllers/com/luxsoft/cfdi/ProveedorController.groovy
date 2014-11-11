@@ -8,7 +8,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.converters.JSON
 
 @Transactional(readOnly = true)
-@Secured(["hasRole('ROLE_ADMIN')"])
+@Secured(["hasRole('ROLE_ADMIN','ROLE_OPERADOR')"])
 class ProveedorController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -23,7 +23,7 @@ class ProveedorController {
         respond proveedorInstance
     }
 
-    @Secured(["hasRole('ROLE_ADMIN')"])
+    @Secured(["hasRole('ROLE_OPERADOR')"])
     def create() {
         respond new Proveedor(params)
     }
@@ -78,6 +78,8 @@ class ProveedorController {
         }
     }
 
+
+    @Secured(["hasRole('ROLE_ADMIN')"])
     @Transactional
     def delete(Proveedor proveedorInstance) {
 
