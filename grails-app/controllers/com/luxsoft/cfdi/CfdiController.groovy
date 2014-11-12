@@ -234,19 +234,12 @@ class CfdiController {
 	
 	def importarXmlImpap(YearMesCommand command){
 
-		//def user=getAuthenticatedUser().username
-		def user="name"
+		def user=getAuthenticatedUser().username
 		def grupo='COMPRAS'
 		def correctos=0
 		def errores=0
 		def duplicados=0
-		def year=2014
-		def mes=10
-
 	
-		println params
-		
-		
 		command.validate()
 		
 		if(command.hasErrors()){
@@ -258,19 +251,14 @@ class CfdiController {
 			return
 		}
 
-		//println 'Importando Xml para :'+command.mes +" / "+params.year+ " / " +params.mes + "/ "+ params.referencia
-		
-		println params
-
 		def db=new Sql(dataSource_importacion)
 		def res=db.eachRow("select uuid,xml,xml_name from cfdi where year(fecha)=? and  month(fecha)=?",[command.year,command.mes]) { row ->
-			println 'Procesando '+row
+			
 			byte[] xml=row.xml
 			try {
 				log.info 'Cargando CFDI con archivo: '+row.uuid
 				Cfdi cfdi=cfdiService.cargarComprobante(row.xml,row.xml_name,command.referencia,grupo,user)
-				//flash.message="CFDI importado "+cfdi.toString()
-				println "CFDI importado "+cfdi.toString()
+				
 				correctos++
 			} catch (Exception e) {
 			    e.printStackTrace()
