@@ -14,7 +14,9 @@
 			<th>XML</th>
 			<th>Acuse</th>
 			<th>Ref</th>
+			<th>Tipo</th>
 			<th>Importado</th>
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -65,7 +67,9 @@
 					</g:link>
 				</td>
 				<td>${row.referencia}</td>
+				<td>${row.tipo}</td>
 				<td><g:formatDate date="${row.dateCreated}" format="dd-MM HH:mm"/></td>
+				
 				
 			</tr>
 		</g:each>
