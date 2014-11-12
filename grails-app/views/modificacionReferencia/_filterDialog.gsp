@@ -35,14 +35,14 @@
 						<label for="fechaInicial" class="col-sm-2 control-label">Fecha Inicial</label>
 						<div class="col-sm-10">
 							<g:field  type="text" name="fechaInicial" class="form-control dateField"  
-							value="${(new Date()-90).format('dd/MM/yyyy')}"/>
+							value="${session.search?.fechaInicial?session.search.fechaInicial.format('dd/MM/yyyy'):(new Date()-90).format('dd/MM/yyyy')}"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="fechaFinal" class="col-sm-2 control-label">Fecha Final</label>
 						<div class="col-sm-10">
 							<g:field  type="text" name="fechaFinal" class="form-control dateField"  
-							value="${(new Date()).format('dd/MM/yyyy')}"/>
+							value="${session.search?.fechaFinal?session.search.fechaFinal.format('dd/MM/yyyy'):(new Date()-90).format('dd/MM/yyyy')}"/>
 						</div>
 					</div>
 
@@ -51,14 +51,7 @@
 						<div class="col-sm-10">
 							<g:field  type="text" name="folio" class="form-control"  />
 						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="uuid" class="col-sm-2 control-label">UUID</label>
-						<div class="col-sm-10">
-							<g:field  type="text" name="uuid" class="form-control"  />
-						</div>
-					</div>
+					</div>					
 
 					<div class="form-group">
 						<label for="total" class="col-sm-2 control-label">Total</label>

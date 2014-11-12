@@ -8,7 +8,7 @@ import org.codehaus.groovy.grails.web.json.JSONArray
 import grails.validation.Validateable
 import grails.transaction.Transactional
 
-@Secured(["hasAnyRole('ROLE_ADMIN')"])
+@Secured(["hasAnyRole('ROLE_ADMIN','ROLE_OPERADOR')"])
 @Transactional(readOnly = true)
 class ModificacionReferenciaController {
 
@@ -32,14 +32,17 @@ class ModificacionReferenciaController {
     }
 
     private getCfdis(CfdiSeach example){
-    	
+    	println 'Buscando con:'+example
     	example.emisor=example.emisor?:'%'
-		example.fechaInicial=example.fechaInicial?:new Date()-60
-		example.fechaFinal=example.fechaFinal?:new Date()
-
-		example.referencia=example.referencia?:'%'
-        example.folio=example.folio?:'%'
 		
+		example.fechaInicial=example.fechaInicial?:new Date()-90
+		example.fechaFinal=example.fechaFinal?:new Date()
+		
+		example.referencia=example.referencia?:'%'
+		example.folio=example.folio?:'%'
+        /*
+		
+		*/
 
 		params.max = example.max ?: 50
 		params.sort=params.sort?:'dateCreated'
@@ -53,8 +56,10 @@ class ModificacionReferenciaController {
 			,example.folio
 			]
 			println 'Argumentos: '+args
-
-		def hql="from Cfdi c where lower(c.emisor) like ?  and date(c.fecha) between ? and ? and c.referencia like ? and c.folio like ?"
+			
+		def hql="from Cfdi c where lower(c.emisor) like ?  and date(c.fecha) between ? and ? and (c.referencia like ? or c.referencia is  null) and (c.folio like ? or c.folio is  null)"
+		//def hql="from Cfdi c where lower(c.emisor) like ?   and c.referencia like ? and c.folio like ?"
+		
 		/*
 		def hql="from Cfdi c where lower(c.emisor) like ?  and c.referencia like ? and c.folio like ? "+ 
 			" and date(c.fecha) between ? and ? "
@@ -64,12 +69,13 @@ class ModificacionReferenciaController {
 		}
 		*/
 
-		def list=Cfdi.findAll(hql,args,params)
+		def found=Cfdi.findAll(hql,args,params)
+		//log.info 'Registros encontrados: '+found
     }
 
      @Transactional
     def modificar(){
-		println 'Modificando referencia de cfdis: '+params
+		log.debug 'Modificando referencia de cfdis: '+params
 		def referencia=params.referencia
 		JSONArray jsonArray=JSON.parse(params.partidas);
 		def rows=[]

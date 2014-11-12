@@ -245,7 +245,7 @@ class CfdiController {
 		if(command.hasErrors()){
 			log.info 'Errores de validacion al ejecutar el command'
 			command.errors.each{
-				println it
+				//println it
 			}
 			redirect action:'index'
 			return

@@ -53,7 +53,8 @@ environments {
 			driverClassName = 'com.mysql.jdbc.Driver'
 			username = 'root'
 			password = 'sys'
-			url = 'jdbc:mysql://localhost/impapx'
+			//url = 'jdbc:mysql://localhost/impapx'
+			url = 'jdbc:mysql://10.10.1.227/impapx'
 			dbCreate = ''
 			readOnly=true
 			properties {

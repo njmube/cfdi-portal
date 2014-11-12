@@ -30,7 +30,7 @@
 						<label for="fechaInicial" class="col-sm-2 control-label">Fecha Inicial</label>
 						<div class="col-sm-10">
 							<g:field  type="text" name="fechaInicial" class="form-control dateField"  
-							value="${(new Date()-10).format('dd/MM/yyyy')}"/>
+							value="${(new Date()-60).format('dd/MM/yyyy')}"/>
 						</div>
 					</div>
 					<div class="form-group">
