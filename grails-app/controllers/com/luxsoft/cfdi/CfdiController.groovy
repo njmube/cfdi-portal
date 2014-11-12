@@ -15,12 +15,16 @@ import org.grails.databinding.BindingFormat
 import grails.validation.Validateable
 
 import groovy.sql.Sql
+import org.codehaus.groovy.grails.plugins.jasper.JasperExportFormat
+import org.codehaus.groovy.grails.plugins.jasper.JasperReportDef
 
 @Transactional(readOnly = false)
 @Secured(["hasAnyRole('ROLE_ADMIN','ROLE_OPERADOR')"])
 class CfdiController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "GET"]
+
+    def jasperService
 
     def cfdiService
 	def dataSource_importacion
@@ -142,13 +146,14 @@ class CfdiController {
                 
             }
         }
+        /*
 		def reporte =params.boolean('reporte')
-		
 		if(reporte){
-			def proveedor =Proveedor.findByRfc(proveedorRfc)
-			redirect controller:'reporte',action:'comprobantesPorEmisor',params:['proveedor.id':proveedor.id]
+			def pdfStream=reporteDeCargaBatch(proveedorRfc)
+            render(file: pdfStream.toByteArray(), contentType: 'application/pdf'
+            ,fileName:'CargaBatch_'+proveedorRfc)
 			return
-		}
+		}*/
 		
         flash.message= "Archivos cargados correctamente: $correctos  con errores: $errores  duplicados: $duplicados"
         redirect action:'index'
@@ -253,7 +258,7 @@ class CfdiController {
 			return
 		}
 
-		println 'Importando Xml para :'+command.mes +" / "+params.year+ " / " +params.mes + "/ "+ params.referencia
+		//println 'Importando Xml para :'+command.mes +" / "+params.year+ " / " +params.mes + "/ "+ params.referencia
 		
 		println params
 
@@ -277,10 +282,21 @@ class CfdiController {
 		flash.message= "Archivos cargados correctamente: $correctos  con errores: $errores  duplicados: $duplicados"
 		redirect action:'index'
 
-
-
-
 	}
+
+    private reporteDeCargaBatch(String emisorRfc){
+        def repParams=[:]
+        repParams['EMISOR_RFC']=emisorRfc
+        log.info 'Ejecutando reporte  '+repParams
+        def reportDef=new JasperReportDef(
+            name:'ComprobantesPorEmisor'
+            ,fileFormat:JasperExportFormat.PDF_FORMAT
+            ,parameters:repParams
+            )
+        ByteArrayOutputStream  pdfStream=jasperService.generateReport(reportDef)
+        return pdfStream
+        
+    }
 
 }
 
