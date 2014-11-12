@@ -49,7 +49,7 @@ class Usuario {
 			
 		}
 		if (isDirty('apellidoPaterno') || isDirty('apellidoMaterno') || isDirty('nombres')) {
-			encodePassword()
+			capitalizarNombre()
 			
 		}
 		

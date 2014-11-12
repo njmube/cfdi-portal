@@ -29,7 +29,7 @@ environments {
             
             pooled = true
             dbCreate="update"
-            url = "jdbc:mysql://10.10.1.225/cfdi?autoReconnect=true"
+            url = "jdbc:mysql://localhost/cfdi?autoReconnect=true"
             driverClassName = "com.mysql.jdbc.Driver"
             dialect = org.hibernate.dialect.MySQL5InnoDBDialect
             username = "root"
@@ -53,7 +53,7 @@ environments {
 			driverClassName = 'com.mysql.jdbc.Driver'
 			username = 'root'
 			password = 'sys'
-			url = 'jdbc:mysql://10.10.1.227/impapx'
+			url = 'jdbc:mysql://localhost/impapx'
 			dbCreate = ''
 			readOnly=true
 			properties {

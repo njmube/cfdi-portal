@@ -20,11 +20,11 @@
   					<span class="glyphicon glyphicon-plus"></span> Nuevo
   			    </g:link>
   			</li>
-  			<li><g:link action="cambiarPassword" id="${usuarioInstance.id}">
+  			<li><g:link action="cambioDePassword" id="${usuarioInstance.id}">
   					<span class="glyphicon glyphicon-pencil"></span> Cambiar password
   			    </g:link>
   			</li>
-  			<li><g:link action="cambiarPassword" id="${usuarioInstance.id}"
+  			<li><g:link action="cambioDePassword" id="${usuarioInstance.id}"
   				onclick="return confirm('Seguro que desa eliminar el usuario de ${usuarioInstance.nombre}');">
   					<span class="glyphicon glyphicon-trash"></span> Eliminar
   			    </g:link>

@@ -43,11 +43,11 @@ class UsuarioController {
         def usuarioInstance=command.toUsuario()
 
         usuarioInstance.save failOnError:true
-        println 'Usuario registrado: '+usuarioInstance.id?:'ERROR'
+        log.info 'Usuario registrado: '+usuarioInstance.id?:'ERROR'
         command.roles.each{
             Role r=Role.get(it)
             UsuarioRole.create(usuarioInstance,r,false)
-            println 'Asignando Rol: '+r
+            //println 'Asignando Rol: '+r
         }
 
 
@@ -127,6 +127,25 @@ class UsuarioController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    @Transactional
+    def cambioDePassword(Usuario usuarioInstance,CambioDePassword command){
+        if(request.method=='GET'){
+            return [usuarioInstance:usuarioInstance,passwordCommand:new CambioDePassword()]
+        }
+        
+        command.validate()
+        if(command.hasErrors()){
+            
+            flash.message="Errores de validación"
+            return [usuarioInstance:usuarioInstance,passwordCommand:command]
+        }
+        usuarioInstance.password=command.password
+        usuarioInstance.save flush:true
+        flash.message="Password actualizado"
+        redirect action:'edit',params:[id:usuarioInstance.id]
+
+    }
 }
 
 @Validateable
@@ -146,11 +165,15 @@ class UsuarioCommand{
         importFrom Usuario
 
         password blank: false, nullable: false
-        confirmPassword blank: false, nullable: false
+        confirmPassword nullable:false,validator:{ val,obj ->
+            if(obj.password!=val){
+                return 'noMatch'
+            }
+            else{
+                return true;
+            }
+        }
     }
-
-
-
     Usuario toUsuario(){
         def u=new Usuario(properties)
         u.capitalizarNombre()
@@ -158,5 +181,24 @@ class UsuarioCommand{
         return u
     }
     
+}
+
+@Validateable
+class CambioDePassword{
+    //Usuario usuario
+    String password
+    String confirmarPassword
+
+    static constraints={
+        password nullable:false
+        confirmarPassword nullable:false,validator:{ val,obj ->
+            if(obj.password!=val){
+                return 'noMatch'
+            }
+            else{
+                return true;
+            }
+        }
+    }
 }
 
