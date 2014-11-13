@@ -28,6 +28,7 @@ class CfdiController {
 
     def cfdiService
 	def dataSource_importacion
+	def dataSource_importacionPaper
 
     
     def index(Integer max) {
@@ -271,6 +272,48 @@ class CfdiController {
 		redirect action:'index'
 
 	}
+	
+	
+	def importarXmlPaper(YearMesCommand command){
+		
+				def user=getAuthenticatedUser().username
+				def grupo='COMPRAS'
+				def correctos=0
+				def errores=0
+				def duplicados=0
+			
+				command.validate()
+				
+				if(command.hasErrors()){
+					log.info 'Errores de validacion al ejecutar el command'
+					command.errors.each{
+						//println it
+					}
+					redirect action:'index'
+					return
+				}
+		
+				def db=new Sql(dataSource_importacionPaper)
+				def res=db.eachRow("select uuid,xml,xml_name from cfdi where year(fecha)=? and  month(fecha)=?",[command.year,command.mes]) { row ->
+					
+					byte[] xml=row.xml
+					try {
+						log.info 'Cargando CFDI con archivo: '+row.uuid
+						Cfdi cfdi=cfdiService.cargarComprobante(row.xml,row.xml_name,command.referencia,grupo,user)
+						
+						correctos++
+					} catch (Exception e) {
+						e.printStackTrace()
+						errores++
+					}
+		
+				}
+		
+				flash.message= "Archivos cargados correctamente: $correctos  con errores: $errores  duplicados: $duplicados"
+				redirect action:'index'
+		
+			}
+	
 
     private reporteDeCargaBatch(String emisorRfc){
         def repParams=[:]

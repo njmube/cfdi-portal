@@ -75,6 +75,11 @@
 										Importar de IMPAP
 									</a>
 								</li>
+								<li>
+									<a href="#importarPaperModal" data-toggle="modal" >
+										Importar de PAPER
+									</a>
+								</li>
 								
 							</ul>
 						</div>
@@ -166,6 +171,45 @@
 		</div>
 		<!-- modal-di -->
 		</div>
+		
+		
+		
+		<div class="modal fade" id="importarPaperModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h3 class="modal-title" id="myModalLabel">Importar CFDI's de PAPER</h3>
+				</div>
+
+				<g:form class="form-horizontal" action="importarXmlPaper" >
+					<div class="modal-body">
+						<f:with bean="${new com.luxsoft.cfdi.YearMesCommand()}">
+							<f:field property="mes"   input-field="form-control"/>
+							<f:field property="year"  input-field="form-control"/>
+							
+						</f:with>
+					</div>	
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<g:submitButton class="btn btn-primary" name="aceptar"
+								value="Aceptar" />
+					</div>
+				</g:form>
+
+			</div>
+			<!-- moda-content -->
+		</div>
+		<!-- modal-di -->
+		</div>
+		
+		
+		
+		
+		
+		
 		
 	</body>
 	

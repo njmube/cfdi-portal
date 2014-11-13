@@ -54,7 +54,7 @@ environments {
 			username = 'root'
 			password = 'sys'
 			//url = 'jdbc:mysql://localhost/impapx'
-			url = 'jdbc:mysql://10.10.1.227/impapx'
+			url = 'jdbc:mysql://10.10.1.227/impapx?autoReconnect=true'
 			dbCreate = ''
 			readOnly=true
 			properties {
@@ -68,6 +68,26 @@ environments {
 				validationQuery = "/* ping */"
 			}
 	   }
+		
+		dataSource_importacionPaper{
+			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+			driverClassName = 'com.mysql.jdbc.Driver'
+			username = 'root'
+			password = 'sys'
+			url = 'jdbc:mysql://10.10.1.228/paperx?autoReconnect=true'
+			dbCreate = ''
+			readOnly=true
+			properties {
+				maxActive = 4
+				maxIdle = 2
+				minIdle = 1
+				initialSize = 1
+				minEvictableIdleTimeMillis = 60000
+				timeBetweenEvictionRunsMillis = 60000
+				maxWait = 10000
+				validationQuery = "/* ping */"
+			}
+		}
     }
 		
     test {
@@ -108,7 +128,7 @@ environments {
 			driverClassName = 'com.mysql.jdbc.Driver'
 			username = 'root'
 			password = 'sys'
-			url = 'jdbc:mysql://10.10.1.227/impapx'
+			url = 'jdbc:mysql://10.10.1.227/impapx?autoReconnect=true'
 			dbCreate = ''
 			readOnly=true
 			properties {
@@ -121,7 +141,27 @@ environments {
 				maxWait = 10000
 				validationQuery = "/* ping */"
 			}
-        }  
+        } 
+		
+		dataSource_importacionPaper{
+			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+			driverClassName = 'com.mysql.jdbc.Driver'
+			username = 'root'
+			password = 'sys'
+			url = 'jdbc:mysql://10.10.1.228/paperx?autoReconnect=true'
+			dbCreate = ''
+			readOnly=true
+			properties {
+				maxActive = 4
+				maxIdle = 2
+				minIdle = 1
+				initialSize = 1
+				minEvictableIdleTimeMillis = 60000
+				timeBetweenEvictionRunsMillis = 60000
+				maxWait = 10000
+				validationQuery = "/* ping */"
+			}
+		}
 
     }
 	
